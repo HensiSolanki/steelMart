@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">
+                    <div class="btn-group w-100" role="group" aria-label="First group">
+                        <a href="/lots" type="button" class="btn btn-primary">Lots</a>
+                        <a href="/materials" type="button" class="btn btn-primary">Materials</a>
+                        <a href="/categories" type="button" class="btn btn-primary">Categories</a>
+                    </div>
+                </div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    {{ __('You are logged in!') }}
                 </div>
             </div>
         </div>
