@@ -12,7 +12,7 @@
     <div class="sidebar-wrapper">
       <ul class="nav">
         <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
-          <a class="nav-link" href="{{ route('admin.login') }}">
+          <a class="nav-link" href="{{ route('home') }}">
             <i class="material-icons">dashboard</i>
               <p>{{ __('Dashboard') }}</p>
           </a>
@@ -79,12 +79,12 @@
             <p>{{ __('Material') }}</p>
           </a>
         </li>
-        <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
+        {{-- <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
           <a class="nav-link" href="#">
             <i class="material-icons">language</i>
-            <p>{{ __('Auction') }}</p>
+            <p>{{ __('RTL Support') }}</p>
           </a>
-        </li>
+        </li> --}}
       </ul>
     </div>
   </div>
