@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use App\Models\Auction;
 use Illuminate\Http\Request;
@@ -15,12 +16,12 @@ class AuctionController extends Controller
     public function index()
     {
           // get all the sharks
-          $sharks = Auction::all();
+          $auctions = Auction::all();
 
           // load the view and pass the sharks
-          
-          return View::make('admin.auctions.index')
-              ->with('sharks', $sharks);
+
+          return view('admin.auctions.index')
+              ->with('auctions', $auctions);
     }
 
     /**
@@ -30,7 +31,7 @@ class AuctionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.auctions.create');
     }
 
     /**
@@ -41,7 +42,9 @@ class AuctionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Auction::create($request->all());
+
+        return redirect()->route('admin.auctions.index');
     }
 
     /**
@@ -52,7 +55,7 @@ class AuctionController extends Controller
      */
     public function show(Auction $auction)
     {
-        //
+        return view('admin.auctions.show', compact('auction'));
     }
 
     /**
@@ -63,7 +66,7 @@ class AuctionController extends Controller
      */
     public function edit(Auction $auction)
     {
-        //
+        return view('admin.auctions.edit', compact('auction'));
     }
 
     /**
@@ -75,7 +78,9 @@ class AuctionController extends Controller
      */
     public function update(Request $request, Auction $auction)
     {
-        //
+        $auction->update($request->all());
+
+        return redirect()->route('admin.auctions.index');
     }
 
     /**
@@ -86,6 +91,8 @@ class AuctionController extends Controller
      */
     public function destroy(Auction $auction)
     {
-        //
+        $auction->delete();
+
+        return redirect()->route('admin.auctions.index');
     }
 }

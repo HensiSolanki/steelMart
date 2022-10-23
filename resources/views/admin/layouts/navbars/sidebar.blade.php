@@ -76,15 +76,15 @@
         <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
           <a class="nav-link" href="{{ route('admin.auctions.index') }}">
             <i class="material-icons">notifications</i>
-            <p>{{ __('Actions') }}</p>
+            <p>{{ __('Auction') }}</p>
           </a>
         </li>
-        <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
+        {{-- <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
           <a class="nav-link" href="#">
             <i class="material-icons">language</i>
             <p>{{ __('Auction') }}</p>
           </a>
-        </li>
+        </li> --}}
       </ul>
     </div>
   </div>
