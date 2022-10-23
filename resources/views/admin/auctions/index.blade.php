@@ -1,4 +1,4 @@
-@extends('admin.layouts.main', ['activePage' => 'auctions', 'titlePage' => 'Usuarios'])
+@extends('admin.layouts.main', ['activePage' => 'auctions', 'titlePage' => 'Auctions'])
 @section('content')
     <div class="content">
       <div class="container-fluid">
