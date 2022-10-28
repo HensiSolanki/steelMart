@@ -14,7 +14,7 @@
           <div class="card-body">
             <div class="row">
               <!-- first -->
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="card card-user">
                   <div class="card-body">
                     <p class="card-text">
@@ -25,18 +25,18 @@
                         <div class="block block-four"></div>
                         <a href="#">
                           <img class="avatar" src="{{ asset('/img/default-avatar.png') }}" alt="">
-                          <h5 class="title mt-3">{{ $post->title }}</h5>
+                          <h5 class="title mt-3">{{ $auction->starting_price }}</h5>
                         </a>
                         <p class="description">
-                          {{ _('Ceo/Co-Founder') }} <br>
-                          {{ $post->title }} <br>
-                          {{ $post->created_at }}
+                          {{ _('Description') }} <br>
+                          {{ $auction->starting_price }} <br>
+                          {{ $auction->last_bid }}
                         </p>
                       </div>
                     </p>
-                    <div class="card-description">
+                    {{-- <div class="card-description">
                       {{ _('Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...') }}
-                    </div>
+                    </div> --}}
                   </div>
                   <div class="card-footer">
                     <div class="button-container">
