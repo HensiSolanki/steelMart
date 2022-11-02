@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\LotsController;
+use App\Http\Controllers\Admin\MaterialsController;
 
 // Dashboard
 Route::get('/', 'HomeController@index')->name('home');
@@ -25,6 +28,35 @@ Route::get('password/confirm', 'Auth\ConfirmPasswordController@showConfirmForm')
 Route::post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
 
 Route::resource('auctions', 'AuctionController');
+
+Route::get('/lots', [LotsController::class, 'index'])->name('home');
+Route::get('/lots-dashboard', [LotsController::class, 'index'])->name('home');
+
+// Materials Routes
+Route::get('/materials', [MaterialsController::class, 'index']);
+Route::get('/materials/create', [MaterialsController::class, 'create']);
+Route::post('/newmaterials', [MaterialsController::class, 'store']);
+Route::get('/materials/{materials}', [MaterialsController::class, 'show']);
+Route::get('/materials/{materials}/edit', [MaterialsController::class, 'edit']);
+Route::patch('/materials/{materials}', [MaterialsController::class, 'update']);
+Route::delete('/materials/{materials}', [MaterialsController::class, 'destroy']);
+
+// Categories Routes
+Route::get('/categories', [CategoriesController::class, 'index']);
+Route::get('/categories/create', [CategoriesController::class, 'create']);
+Route::post('/newcategories', [CategoriesController::class, 'store']);
+Route::get('/categories/{categories}/edit', [CategoriesController::class, 'edit']);
+Route::patch('/categories/{categories}', [CategoriesController::class, 'update']);
+Route::delete('/categories/{categories}', [CategoriesController::class, 'destroy']);
+
+// Lots Routes
+Route::get('/lots', [LotsController::class, 'index']);
+Route::get('/lots/create', [LotsController::class, 'create']);
+Route::post('/newlots', [LotsController::class, 'store']);
+Route::get('/lots/{lots}', [LotsController::class, 'show']);
+Route::get('/lots/{lots}/edit', [LotsController::class, 'edit']);
+Route::patch('/lots/{lots}', [LotsController::class, 'update']);
+Route::delete('/lots/{lots}', [LotsController::class, 'destroy']);
 // Verify Email
 // Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
 // Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');

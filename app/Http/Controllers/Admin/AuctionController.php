@@ -13,6 +13,10 @@ class AuctionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('admin.auth:admin');
+    }
     public function index()
     {
           // get all the sharks
