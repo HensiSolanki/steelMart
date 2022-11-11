@@ -40,7 +40,7 @@
                   </div>
                   <div class="card-footer">
                     <div class="button-container">
-                      <button type="submit" class="btn btn-sm btn-primary">Editar</button>
+                        <a href="{{ route('admin.auctions.index') }}" class="btn btn-primary">Back</a>
                     </div>
                   </div>
                 </div>

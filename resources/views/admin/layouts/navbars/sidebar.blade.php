@@ -12,12 +12,12 @@
     <div class="sidebar-wrapper">
       <ul class="nav">
         <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
-          <a class="nav-link" href="{{ route('admin.login') }}">
+          <a class="nav-link" href="{{ url('admin') }}">
             <i class="material-icons">dashboard</i>
               <p>{{ __('Dashboard') }}</p>
           </a>
         </li>
-        <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+        {{-- <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
           <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
             <i><img style="width:25px" src="{{ asset('img/laravel.svg') }}"></i>
             <p>{{ __('User Settings') }}
@@ -40,7 +40,7 @@
               </li>
             </ul>
           </div>
-        </li>
+        </li> --}}
         @can('user_index')
         <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">
           <a class="nav-link" href="{{ route('users.index') }}">
@@ -77,6 +77,16 @@
           <a class="nav-link" href="{{ route('admin.auctions.index') }}">
             <i class="material-icons">notifications</i>
             <p>{{ __('Auction') }}</p>
+          </a>
+        </li>  <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
+          <a class="nav-link" href="{{ url('admin/materials') }}">
+            <i class="material-icons">notifications</i>
+            <p>{{ __('Materials') }}</p>
+          </a>
+        </li>  <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
+          <a class="nav-link" href="{{ url('admin/lots') }}">
+            <i class="material-icons">notifications</i>
+            <p>{{ __('Lots') }}</p>
           </a>
         </li>
         {{-- <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">

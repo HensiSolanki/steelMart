@@ -1,23 +1,25 @@
-@extends('admin.layouts.main', ['activePage' => 'posts', 'titlePage' => 'Nuevo Post'])
+@extends('admin.layouts.main', ['activePage' => 'materials', 'titlePage' => 'New Material'])
 
 @section('content')
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="POST" action="{{ route('admin.auctions.store') }}" class="form-horizontal">
+                    <form method="POST" action="{{ url('admin.auctions.store') }}" class="form-horizontal">
                         @csrf
                         <div class="card ">
                             <!--Header-->
                             <div class="card-header card-header-primary">
-                                <h4 class="card-title">Auction</h4>
-                                <p class="card-category">Create Auction</p>
+                                <h4 class="card-title">Materials</h4>
+                                <p class="card-category">Create Materials</p>
                             </div>
                             <!--End header-->
                             <!--Body-->
                             <div class="card-body">
+
+
                                 <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Starting Price</label>
+                                    <label for="title" class="col-sm-2 col-form-label">Title</label>
                                     <div class="col-sm-7">
                                         <input type="text" class="form-control" name="starting_price"
                                             placeholder="Auction Price" autocomplete="off" autofocus>

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+
 
 use App\Models\categories;
 use App\Models\materials;
@@ -18,7 +20,7 @@ class MaterialsController extends Controller
     public function index()
     {
         $materials = materials::all();
-        return view('materials.materialslist', compact('materials'));
+        return view('admin.materials.index', compact('materials'));
     }
 
     public function create()
@@ -26,7 +28,7 @@ class MaterialsController extends Controller
         $addForm = true;
         $materials  = null;
         $categorys = categories::all();
-        return view('materials.materialform', compact('addForm', 'materials', 'categorys'));
+        return view('admin.materials.create', compact('addForm', 'materials', 'categorys'));
     }
 
     public function store(Request $request)
@@ -43,7 +45,7 @@ class MaterialsController extends Controller
             'price' => 'required|min:0',
             'categoryId' => 'nullable',
         ]);
-        $details = materials::create(['uid' => $userdetails->id, ...$data]);
+        $details = materials::create(['uid' => $userdetails->id, $data]);
         return redirect('/materials');
     }
     public function show(materials $materials)

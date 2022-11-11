@@ -1,4 +1,4 @@
-@extends('admin.layouts.main', ['activePage' => 'auctions', 'titlePage' => 'Auctions'])
+@extends('admin.layouts.main', ['activePage' => 'materials', 'titlePage' => 'Materials'])
 @section('content')
     <div class="content">
       <div class="container-fluid">
@@ -8,8 +8,8 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Auctions</h4>
-                    <p class="card-category">Add Auctions</p>
+                    <h4 class="card-title">Materials</h4>
+                    <p class="card-category">Add Materials</p>
                   </div>
                   <div class="card-body">
                     @if (session('success'))
@@ -19,27 +19,29 @@
                     @endif
                     <div class="row">
                       <div class="col-12 text-right">
-                        <a href="{{ route('admin.auctions.create') }}" class="btn btn-sm btn-facebook">Add</a>
+                        <a href="{{ url('admin/materials/create') }}" class="btn btn-sm btn-facebook">Add</a>
                       </div>
                     </div>
                     <div class="table-responsive">
                       <table class="table">
                         <thead class="text-primary">
                           <th>ID</th>
-                          <th>Last Bid</th>
-                          <th>Status</th>
-                          <th class="text-right">Actions</th>
+                          <th>Title</th>
+                          <th>Description</th>
+                          <th>Price</th>
+                          <th class="text-right">Material</th>
                         </thead>
                         <tbody>
-                             @foreach ($auctions as $auction)
+                             @foreach ($materials as $material)
                             <tr>
-                              <td>{{ $auction->id }}</td>
-                              <td>{{ $auction->last_bid }}</td>
-                              <td>{{ $auction->status }}</td>
+                              <td>{{ $material->id }}</td>
+                              <td>{{ $material->title }}</td>
+                              <td>{{ $material->description }}</td>
+                              <td>{{ $material->price }}</td>
                               <td class="td-actions text-right">
-                                <a href="{{ route('admin.auctions.show', $auction->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
-                                <a href="{{ route('admin.auctions.edit', $auction->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>
-                                <form action="{{ route('admin.auctions.destroy', $auction->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Are You Sure?')">
+                                <a href="{{ route('admin.auctions.show', $material->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
+                                <a href="{{ route('admin.auctions.edit', $material->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>
+                                <form action="{{ route('admin.auctions.destroy', $material->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Are You Sure?')">
                                 @csrf
                                 @method('DELETE')
                                     <button class="btn btn-danger" type="submit" rel="tooltip">
@@ -54,7 +56,7 @@
                     </div>
                   </div>
                   <div class="card-footer mr-auto">
-                    {{-- {{ $auctions->links() }} --}}
+                    {{-- {{ $materialss->links() }} --}}
                   </div>
                 </div>
               </div>

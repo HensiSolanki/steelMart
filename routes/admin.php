@@ -29,8 +29,8 @@ Route::post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
 
 Route::resource('auctions', 'AuctionController');
 
+// Route::get('/lots-dashboard', [LotsController::class, 'index'])->name('home');
 Route::get('/lots', [LotsController::class, 'index'])->name('home');
-Route::get('/lots-dashboard', [LotsController::class, 'index'])->name('home');
 
 // Materials Routes
 Route::get('/materials', [MaterialsController::class, 'index']);
@@ -51,10 +51,10 @@ Route::delete('/categories/{categories}', [CategoriesController::class, 'destroy
 
 // Lots Routes
 Route::get('/lots', [LotsController::class, 'index']);
-Route::get('/lots/create', [LotsController::class, 'create']);
+Route::get('/lots/create', [LotsController::class, 'create'])->name('create');
 Route::post('/newlots', [LotsController::class, 'store']);
 Route::get('/lots/{lots}', [LotsController::class, 'show']);
-Route::get('/lots/{lots}/edit', [LotsController::class, 'edit']);
+Route::get('/lots/edit/{lots}', [LotsController::class, 'edit']);
 Route::patch('/lots/{lots}', [LotsController::class, 'update']);
 Route::delete('/lots/{lots}', [LotsController::class, 'destroy']);
 // Verify Email

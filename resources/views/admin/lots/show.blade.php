@@ -1,4 +1,4 @@
-@extends('admin.layouts.main', ['activePage' => 'posts', 'titlePage' => 'Detalles del post'])
+@extends('admin.layouts.main', ['activePage' => 'lots', 'titlePage' => 'Details'])
 @section('content')
 <div class="content">
   <div class="container-fluid">
@@ -7,7 +7,7 @@
         <div class="card">
           <!--Header-->
           <div class="card-header card-header-primary">
-            <h4 class="card-title">Auctions</h4>
+            <h4 class="card-title">Lots</h4>
           </div>
           <!--End header-->
           <!--Body-->
@@ -25,12 +25,12 @@
                         <div class="block block-four"></div>
                         <a href="#">
                           <img class="avatar" src="{{ asset('/img/default-avatar.png') }}" alt="">
-                          <h5 class="title mt-3">{{ $auction->starting_price }}</h5>
+                          <h5 class="title mt-3">{{ $lots->title }}</h5>
                         </a>
                         <p class="description">
                           {{ _('Description') }} <br>
-                          {{ $auction->starting_price }} <br>
-                          {{ $auction->last_bid }}
+                          {{ $lots->description }} <br>
+                          {{ $lots->date }}
                         </p>
                       </div>
                     </p>
@@ -40,7 +40,7 @@
                   </div>
                   <div class="card-footer">
                     <div class="button-container">
-                      <button type="submit" class="btn btn-sm btn-primary">Editar</button>
+                      <a href="{{ url('admin/lots') }}" class="btn btn-primary">Back</a>
                     </div>
                   </div>
                 </div>

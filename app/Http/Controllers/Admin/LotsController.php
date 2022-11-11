@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use App\Models\lot_materials;
 use App\Models\lots;
@@ -18,7 +19,7 @@ class LotsController extends Controller
     public function index()
     {
         $lots = lots::all();
-        return view('admin.lots.lotslist', compact('lots'));
+        return view('admin.lots.index', compact('lots'));
     }
 
     public function create()
@@ -26,7 +27,7 @@ class LotsController extends Controller
         $addForm = true;
         $materials = materials::all();
         $lots = false;
-        return view('admin.lots.lotsform', compact('addForm', 'materials', 'lots'));
+        return view('admin.lots.create', compact('addForm', 'materials', 'lots'));
     }
 
     public function store(Request $request)
@@ -37,17 +38,18 @@ class LotsController extends Controller
             'description' => 'nullable',
             'date' => 'required',
             'startAmount' => 'required',
-            'materials' => 'required',
+            'materials' => 'nullable',
             'status' => 'nullable',
         ]);
-        $data = lots::create(['uid' => $userDetails->id, $details]);
-        $data->materials()->attach(array_key_exists('materials', $details) ? $details['materials'] : []);
-        return redirect('admin.lots');
+        // $data = lots::create(['uid' => $userDetails->id, $details]);
+        $data = lots::create($request->all());
+        // $data->materials()->attach(array_key_exists('materials', $details) ? $details['materials'] : []);
+        return redirect('admin/lots');
     }
 
     public function show(lots $lots)
     {
-        return view('admin.lots.lotedetails', compact('lots'));
+        return view('admin.lots.show', compact('lots'));
     }
 
     public function edit(lots $lots)
@@ -55,7 +57,7 @@ class LotsController extends Controller
         $addForm = false;
         $materials = materials::all();
         $lot_materials = lot_materials::where('lots_id', $lots->id)->get();
-        return view('admin.lots.lotsform', compact('addForm', 'lots', 'materials', 'lot_materials'));
+        return view('admin.lots.edit', compact('addForm', 'lots', 'materials', 'lot_materials'));
     }
 
     public function update(Request $request, lots $lots)
@@ -73,12 +75,12 @@ class LotsController extends Controller
 
         $lots->materials()->sync(array_key_exists('materials', $data) ? $data['materials'] : []);
 
-        return redirect('admin.lots');
+        return redirect('admin/lots');
     }
 
     public function destroy(lots $lots)
     {
         $lots->delete();
-        return redirect('admin.lots');
+        return redirect('admin/lots');
     }
 }
