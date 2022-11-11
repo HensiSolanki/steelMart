@@ -64,7 +64,7 @@
                                             placeholder="Length" autocomplete="off" autofocus>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <label for="weight" class="col-sm-2 col-form-label">Weight</label>
                                     <div class="col-sm-7">
@@ -72,7 +72,7 @@
                                             placeholder="Weight" autocomplete="off" autofocus>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <label for="inStock" class="col-sm-2 col-form-label">Stock</label>
                                     <div class="col-sm-7">
@@ -80,7 +80,7 @@
                                             placeholder="Stock" autocomplete="off" autofocus>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <label for="price" class="col-sm-2 col-form-label">Price</label>
                                     <div class="col-sm-7">
