@@ -44,10 +44,11 @@ Route::delete('/materials/{materials}', [MaterialsController::class, 'destroy'])
 // Categories Routes
 Route::get('/categories', [CategoriesController::class, 'index']);
 Route::get('/categories/create', [CategoriesController::class, 'create']);
-Route::post('/newcategories', [CategoriesController::class, 'store']);
+Route::get('/categories/show/{categories}', [CategoriesController::class, 'show']);
+Route::post('/categories/store', [CategoriesController::class, 'store']);
 Route::get('/categories/{categories}/edit', [CategoriesController::class, 'edit']);
 Route::patch('/categories/{categories}', [CategoriesController::class, 'update']);
-Route::delete('/categories/{categories}', [CategoriesController::class, 'destroy']);
+Route::delete('/categories/destroy/{categories}', [CategoriesController::class, 'destroy']);
 
 // Lots Routes
 Route::get('/lots', [LotsController::class, 'index']);

@@ -4,47 +4,51 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="POST" action="{{ route('admin.auctions.update', $auction->id) }}" class="form-horizontal">
+                    <form method="post" action="{{ url('admin/categories', $categories->id) }}" class="form-horizontal">
+                        @method('PATCH')
                         @csrf
-                        @method('PUT')
                         <div class="card">
                             <!--Header-->
                             <div class="card-header card-header-primary">
-                                <h4 class="card-title">Editar post</h4>
-                                <p class="card-category">Editar datos del post</p>
+                                <h4 class="card-title">Edit Categories</h4>
+                                <p class="card-category">Update categori Details</p>
                             </div>
                             <!--End header-->
                             <!--Body-->
                             <div class="card-body">
                                 <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Starting Price</label>
+                                    <label for="title" class="col-sm-2 col-form-label">Title</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="starting_price"
-                                            placeholder="Ingrese el title" value="{{ old('starting_price', $auction->starting_price) }}"
-                                            autocomplete="off" autofocus>
+                                        <input type="text" class="form-control" name="title" placeholder="Title"
+                                            autocomplete="off" value="{{ $categories->title }}" autofocus>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Last Bid</label>
+                                    <label for="description" class="col-sm-2 col-form-label">Description</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="last_bid"
-                                            placeholder="Ingrese el title" value="{{ old('last_bid', $auction->last_bid) }}"
-                                            autocomplete="off" autofocus>
+                                        <textarea type="text" class="form-control" name="description" placeholder="Description" autocomplete="off" autofocus>{{ $categories->description }}</textarea>
                                     </div>
                                 </div>
+44
                                 <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Auction Date</label>
+                                    <label for="categoryId" class="col-sm-2 col-form-label">Category</label>
                                     <div class="col-sm-7">
-                                        <input type="date" class="form-control" name="auction_date"
-                                            placeholder="Ingrese el title" value="{{ old('auction_date', $auction->auction_date) }}"
-                                            autocomplete="off" autofocus>
+                                        <select class="form-select form-control" id="categoryId" name="categoryId">
+                                            @foreach ($parentcategories as $categorie)
+                                                @if ($categorie->id != $categories->id)
+                                                    <option value={{ $categorie->id }}
+                                                        @if ($categories->parentcategory == $categorie->id) selected @endif>
+                                                        {{ $categorie->title }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <!--End body-->
                             <!--Footer-->
                             <div class="card-footer ml-auto mr-auto">
-                                <a href="{{ route('admin.auctions.index') }}" class="btn btn-primary">Back</a>
+                                <a href="{{ url('admin/categories') }}" class="btn btn-primary">Back</a>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
 
