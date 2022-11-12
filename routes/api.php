@@ -29,6 +29,7 @@ $api->version('v1', ['namespace' => 'App\Http\Controllers\Api\v1\Admin'], functi
     $api->get('open', 'Auth\DemoController@open');
     $api->get('open', 'Auth\DemoController@open');
     $api->get('auction', 'AuctionContoller@auction');
+    $api->get('lots', 'LotsContoller@getLots');
 
     Route::group(['middleware' => 'jwt.verify', 'namespace' => 'App\Http\Controllers\Api\v1\Admin'], function () {
         Route::get('user', 'Auth\SignUpController@getAuthenticatedUser');
