@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="POST" action="{{ url('admin.auctions.store') }}" class="form-horizontal">
+                    <form method="POST" action="{{ url('admin/newmaterials') }}" class="form-horizontal">
                         @csrf
                         <div class="card ">
                             <!--Header-->
@@ -31,10 +31,11 @@
                                         <textarea type="text" class="form-control" id="description" name="description" placeholder="Description" autofocus></textarea>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <label for="categoryId" class="col-sm-2 col-form-label">Category</label>
                                     <div class="col-sm-7">
-                                        <select class="form-select" id="categoryId" name="categoryId">
+                                        <select class="form-select form-control" id="categoryId" name="categoryId">
                                             @foreach ($categorys as $category)
                                                 <option value={{ $category->id }}
                                                     @if (!$addForm && $materials->categoryId == $category->id) selected @endif>{{ $category->title }}

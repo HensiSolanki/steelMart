@@ -75,6 +75,11 @@
                 </li>
             @endcan
             <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.users.index') }}">
+                    <i class="material-icons">notifications</i>
+                    <p>{{ __('Users') }}</p>
+                </a>
+            </li><li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.auctions.index') }}">
                     <i class="material-icons">notifications</i>
                     <p>{{ __('Auction') }}</p>

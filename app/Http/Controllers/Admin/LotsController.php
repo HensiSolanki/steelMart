@@ -43,7 +43,7 @@ class LotsController extends Controller
         ]);
         // $data = lots::create(['uid' => $userDetails->id, $details]);
         $data = lots::create($request->all());
-        // $data->materials()->attach(array_key_exists('materials', $details) ? $details['materials'] : []);
+        $data->materials()->attach(array_key_exists('materials', $details) ? $details['materials'] : []);
         return redirect('admin/lots');
     }
 

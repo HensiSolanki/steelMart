@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\LotsController;
 use App\Http\Controllers\Admin\MaterialsController;
+use App\Http\Controllers\Admin\UserController;
 
 // Dashboard
 Route::get('/', 'HomeController@index')->name('home');
@@ -28,6 +29,7 @@ Route::get('password/confirm', 'Auth\ConfirmPasswordController@showConfirmForm')
 Route::post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
 
 Route::resource('auctions', 'AuctionController');
+Route::resource('users', 'UserController');
 
 // Route::get('/lots-dashboard', [LotsController::class, 'index'])->name('home');
 Route::get('/lots', [LotsController::class, 'index'])->name('home');

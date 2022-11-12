@@ -33,7 +33,8 @@ class MaterialsController extends Controller
 
     public function store(Request $request)
     {
-        $userdetails = Auth::user();
+        $userdetails = Auth::guard('admin');
+        dd($userdetails);
         $data = $request->validate([
             'title' => 'required',
             'description' => 'nullable',
@@ -46,7 +47,7 @@ class MaterialsController extends Controller
             'categoryId' => 'nullable',
         ]);
         $details = materials::create(['uid' => $userdetails->id, $data]);
-        return redirect('/materials');
+        return redirect('admin/materials');
     }
     public function show(materials $materials)
     {

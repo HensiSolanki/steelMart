@@ -29,14 +29,17 @@
                                         <textarea class="form-control" id="description" name="description" placeholder="Description"> {{ $lots ? $lots->description : '' }} </textarea>
                                     </div>
                                 </div>
-                             {{-- <div class="row">
+                             <div class="row">
                                     <label for="materials" class="col-sm-2 col-form-label">Materials</label>
-                                    <select class="selectpicker form-control " multiple data-live-search="true" name="materials[]">
+                                    <div class="col-sm-7">
+                                    <select  class="form-select form-control" multiple data-live-search="true" name="materials[]">
                                       @foreach($materials as $matr)
                                       <option value="{{$matr->id}}" @if($lots && $lots->material->contains($mtr->id)) selected @endif>{{$matr->title}}</option>
                                       @endforeach
                                     </select>
-                                  </div> --}}
+                                    </div>
+                                  </div>
+
 
                                 <div class="row">
                                     <label for="title" class="col-sm-2 col-form-label">Date</label>
