@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
+
 class SignUpController extends Controller
 {
     private $user, $defaultNumber;
@@ -23,17 +24,17 @@ class SignUpController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-			'email' => 'required|string',
+            'email' => 'required|string',
             'password' => 'required|string'
-		]);
-		if ($validator->fails()) {
-			$data = ['message' => $validator->errors()];
-			return response()->json($data);
-    }
+        ]);
+        if ($validator->fails()) {
+            $data = ['message' => $validator->errors()];
+            return response()->json($data);
+        }
         $credentials = $request->all();
 
         $user = User::create([
-            'name'=>$request->get('name'),
+            'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
             // 'password' => $request->get('password'),
@@ -42,27 +43,34 @@ class SignUpController extends Controller
 
         // return response()->json(compact('user','token'),201);
 
-		$data = array(
-			'message' => 'User Register Successfully',
+        $data = array(
+            'message' => 'User Register Successfully',
             'token' => $token,
-			'result' => $user
-		);
+            'result' => $user
+        );
 
-		return response()->json($data,201);
+        return response()->json($data, 201);
     }
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
+
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
+
                 return response()->json(['error' => 'invalid_credentials'], 400);
             }
         } catch (JWTException $e) {
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
-
-        return response()->json(compact('token'));
+        $user =  User::whereEmail($credentials['email'])->first();
+        $data = array(
+            'message' => 'User Login Successfully',
+            'token' => $token,
+            'result' => $user
+        );
+        return response()->json($data);
     }
     public function getAuthenticatedUser()
     {
