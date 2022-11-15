@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 
 use App\Models\lot_materials;
@@ -32,18 +33,27 @@ class LotsController extends Controller
 
     public function store(Request $request)
     {
-        $userDetails = Auth::user();
+        $userDetails = Auth::guard('admin')->user();
         $details = $request->validate([
             'title' => 'required',
             'description' => 'nullable',
-            'date' => 'required',
-            'startAmount' => 'required',
-            'materials' => 'nullable',
             'status' => 'nullable',
+            "seller" => "required",
+            "plant" => "nullable",
+            "materialLocation" => "nullable",
+            "quantity" => "required",
+            "startDate" => "required",
+            "endDate" => "required",
+            "material" => "nullable",
+            "startPrice" => "required",
+            "date" => "required",
+            "Auction" => "nullable",
+
         ]);
-        // $data = lots::create(['uid' => $userDetails->id, $details]);
-        $data = lots::create($request->all());
-        $data->materials()->attach(array_key_exists('materials', $details) ? $details['materials'] : []);
+        // dd($details);
+        $data = lots::create(['uid' => $userDetails->id, ...$details]);
+        // $data = lots::create($request->all());
+        $data->materials()->attach(array_key_exists('material', $details) ? $details['materials'] : []);
         return redirect('admin/lots');
     }
 
@@ -62,16 +72,23 @@ class LotsController extends Controller
 
     public function update(Request $request, lots $lots)
     {
-        $userDetails = Auth::user();
+        $userDetails = Auth::guard('admin')->user();
         $data  = $request->validate([
             'title' => 'required',
             'description' => 'nullable',
-            'date' => 'required',
-            'startAmount' => 'required',
-            'materials' => 'required',
             'status' => 'nullable',
+            "seller" => "required",
+            "plant" => "nullable",
+            "materialLocation" => "nullable",
+            "quantity" => "required",
+            "startDate" => "required",
+            "endDate" => "required",
+            "material" => "nullable",
+            "startPrice" => "required",
+            "date" => "required",
+            "Auction" => "nullable",
         ]);
-        $lots->update(['uid' => $userDetails->id, $data]);
+        $lots->update(['uid' => $userDetails->id, ...$data]);
 
         $lots->materials()->sync(array_key_exists('materials', $data) ? $data['materials'] : []);
 

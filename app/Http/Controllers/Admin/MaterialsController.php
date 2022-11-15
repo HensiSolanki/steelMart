@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 
 
@@ -33,22 +34,40 @@ class MaterialsController extends Controller
 
     public function store(Request $request)
     {
-        $userdetails = Auth::guard('admin');
-        dd($userdetails);
+        $userdetails = Auth::guard('admin')->user();
         $data = $request->validate([
-            'title' => 'required',
+            'title' => 'required|min:0',
             'description' => 'nullable',
-            'height' => 'required|min:0',
-            'width' => 'required|min:0',
-            'length' => 'required|min:0',
-            'weight' => 'required|min:0',
-            'inStock' => 'required|min:0',
-            'price' => 'required|min:0',
             'categoryId' => 'nullable',
+            'thick' => 'required|min:0',
+            'height' => 'required|min:0',
+            'weight' => 'required|min:0',
+            'width' => 'required|min:0',
+            'price' => 'required|min:0',
+            'coilLength' => 'nullable',
+            'JSWgrade' => 'nullable',
+            'grade' => 'nullable',
+            'qty' => 'nullable',
+            'majorDefect' => 'nullable',
+            'coating' => 'nullable',
+            'testedCoating' => 'nullable',
+            'tinTemper' => 'nullable',
+            'eqSpeci' => 'nullable',
+            'heatNo' => 'nullable',
+            'passivation' => 'nullable',
+            'coldTreatment' => 'nullable',
+            'plantNo' => 'nullable',
+            'qualityRemark' => 'nullable',
+            'storageLocation' => 'nullable',
+            'edgeCondition' => 'nullable',
+            'plantLotNo' => 'nullable',
+            'inStock' => 'nullable',
         ]);
-        $details = materials::create(['uid' => $userdetails->id, $data]);
+        // dd($data);
+        $details = materials::create(['uid' => $userdetails->id, ...$data]);
         return redirect('admin/materials');
     }
+
     public function show(materials $materials)
     {
         //
@@ -56,31 +75,46 @@ class MaterialsController extends Controller
 
     public function edit(materials $materials)
     {
-        $addForm = false;
         $categorys = categories::all();
-        return view('materials.materialform', compact('addForm', 'materials', 'categorys'));
+        return view('admin.materials.edit', compact('materials', 'categorys'));
     }
 
     public function update(Request $request, materials $materials)
     {
-
         $materials->update($request->validate([
-            'title' => 'required',
+            'title' => 'required|min:0',
             'description' => 'nullable',
+            'categoryId' => 'nullable',
+            'thick' => 'required|min:0',
             'height' => 'required|min:0',
-            'width' => 'required|min:0',
-            'length' => 'required|min:0',
             'weight' => 'required|min:0',
-            'inStock' => 'required|min:0',
+            'width' => 'required|min:0',
             'price' => 'required|min:0',
-            'categoryId' => 'required',
+            'coilLength' => 'nullable',
+            'JSWgrade' => 'nullable',
+            'grade' => 'nullable',
+            'qty' => 'nullable',
+            'majorDefect' => 'nullable',
+            'coating' => 'nullable',
+            'testedCoating' => 'nullable',
+            'tinTemper' => 'nullable',
+            'eqSpeci' => 'nullable',
+            'heatNo' => 'nullable',
+            'passivation' => 'nullable',
+            'coldTreatment' => 'nullable',
+            'plantNo' => 'nullable',
+            'qualityRemark' => 'nullable',
+            'storageLocation' => 'nullable',
+            'edgeCondition' => 'nullable',
+            'plantLotNo' => 'nullable',
+            'inStock' => 'nullable',
         ]));
-        return redirect('/materials');
+        return redirect('admin/materials');
     }
 
     public function destroy(materials $materials)
     {
         $materials->delete();
-        return redirect('/materials');
+        return redirect('admin/materials');
     }
 }

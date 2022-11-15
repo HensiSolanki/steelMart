@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class lots extends Model
 {
     use HasFactory;
-    protected  $fillable = ['title', 'description', 'startAmount', 'date', 'uid', 'status', 'customFields'];
+    protected  $fillable =    [
+        'title', 'description', 'uid', 'seller', 'plant', 'materialLocation', 'quantity',
+        'startDate', 'endDate', 'price', 'material', 'auction', 'status', 'customFields',
+    ];
 
     public function materials()
     {
         return $this->belongsToMany(materials::class, 'lot_materials');
     }
-
 }

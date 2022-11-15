@@ -17,16 +17,24 @@ class CreateLotsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->dateTime('date');
-            $table->double('startAmount');
             $table->integer('uid');
+            $table->string('Seller')->nullable();
+            $table->string('Plant')->nullable();
+            $table->string('materialLocation')->nullable();
+            $table->string('Category')->nullable();
+            $table->string('Quantity')->nullable();
+            $table->string('StartDate');
+            $table->string('EndDate');
+            $table->string('Price')->nullable();
+            $table->string('Material')->nullable();
+            $table->string('Auction')->nullable();
             $table->boolean('status')->default(false);
             $table->string('customFields')->default('');
             $table->timestamps();
         });
     }
 
-    /**
+    /**Location
      * Reverse the migrations.
      *
      * @return void

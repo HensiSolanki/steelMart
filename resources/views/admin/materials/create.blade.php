@@ -17,7 +17,6 @@
                             <!--Body-->
                             <div class="card-body">
 
-
                                 <div class="row">
                                     <label for="title" class="col-sm-2 col-form-label">Title</label>
                                     <div class="col-sm-7">
@@ -31,11 +30,10 @@
                                         <textarea type="text" class="form-control" id="description" name="description" placeholder="Description" autofocus></textarea>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <label for="categoryId" class="col-sm-2 col-form-label">Category</label>
                                     <div class="col-sm-7">
-                                        <select class="form-select form-control" id="categoryId" name="categoryId">
+                                        <select class="form-select" id="categoryId" name="categoryId">
                                             @foreach ($categorys as $category)
                                                 <option value={{ $category->id }}
                                                     @if (!$addForm && $materials->categoryId == $category->id) selected @endif>{{ $category->title }}
@@ -59,13 +57,19 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <label for="thick" class="col-sm-2 col-form-label">Thickness</label>
+                                    <div class="col-sm-7">
+                                        <input type="number" class="form-control" id="thick" name="thick"
+                                            placeholder="Thickness" autocomplete="off" utofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <label for="length" class="col-sm-2 col-form-label">Length</label>
                                     <div class="col-sm-7">
                                         <input type="number" class="form-control" id="length" name="length"
                                             placeholder="Length" autocomplete="off" autofocus>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <label for="weight" class="col-sm-2 col-form-label">Weight</label>
                                     <div class="col-sm-7">
@@ -73,7 +77,6 @@
                                             placeholder="Weight" autocomplete="off" autofocus>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <label for="inStock" class="col-sm-2 col-form-label">Stock</label>
                                     <div class="col-sm-7">
@@ -81,7 +84,6 @@
                                             placeholder="Stock" autocomplete="off" autofocus>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <label for="price" class="col-sm-2 col-form-label">Price</label>
                                     <div class="col-sm-7">
@@ -89,22 +91,153 @@
                                             placeholder="Price" autocomplete="off" autofocus>
                                     </div>
                                 </div>
-                                {{-- <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Auction Date</label>
+                                <div class="row">
+                                    <label for="coilLength" class="col-sm-2 col-form-label">Coil Length</label>
                                     <div class="col-sm-7">
-                                        <input type="date" class="form-control" name="auction_date"
-                                            placeholder="Ingrese el post title" autocomplete="off" autofocus>
+                                        <input type="string" class="form-control" id="coilLength" name="coilLength"
+                                            placeholder="Coil Length" autocomplete="off" autofocus>
                                     </div>
-                                </div> --}}
-                                {{-- <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Auction</label>
+                                </div>
+                                <div class="row">
+                                    <label for="JSWgrade" class="col-sm-2 col-form-label">JSW Grade</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="title"
-                                            placeholder="Ingrese el post title" autocomplete="off" autofocus>
+                                        <input type="string" class="form-control" id="JSWgrade" name="JSWgrade"
+                                            placeholder="JSW Grade" autocomplete="off" autofocus>
                                     </div>
-                                </div> --}}
+                                </div>
+                                <div class="row">
+                                    <label for="grade" class="col-sm-2 col-form-label">Grade</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="grade" name="grade"
+                                            placeholder="Grade" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="quantity" name="quantity"
+                                            placeholder="Quantity" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="majorDefect" class="col-sm-2 col-form-label">Major Defect</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="majorDefect" name="majorDefect"
+                                            placeholder="Major Defect" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="coatinc" class="col-sm-2 col-form-label">Coating</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="coating" name="coating"
+                                            placeholder="Coating" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="testedCoating" class="col-sm-2 col-form-label">Tested Coating</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="testedCoating"
+                                            name="testedCoating" placeholder="Tested Coating" autocomplete="off"
+                                            autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="testedCoating" class="col-sm-2 col-form-label">Tested Coating</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="testedCoating"
+                                            name="testedCoating" placeholder="Tested Coating" autocomplete="off"
+                                            autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="tinTemper" class="col-sm-2 col-form-label">Tin Temper</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="tinTemper" name="tinTemper"
+                                            placeholder="Tin Temper" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="eqSpeci" class="col-sm-2 col-form-label">WQ Speci</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="eqSpeci" name="eqSpeci"
+                                            placeholder="WQ Speci" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="heatNo" class="col-sm-2 col-form-label">Heat No</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="heatNo" name="heatNo"
+                                            placeholder="Heat No" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="passivation" class="col-sm-2 col-form-label">Passivation</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="passivation" name="passivation"
+                                            placeholder="Passivation" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="coldTreatment" class="col-sm-2 col-form-label">Cold Treatment</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="coldTreatment"
+                                            name="coldTreatment" placeholder="Cold Treatment" autocomplete="off"
+                                            autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="plantNo" class="col-sm-2 col-form-label">Plant No</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="plantNo" name="plantNo"
+                                            placeholder="Plant No" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="qualityRemark" class="col-sm-2 col-form-label">Quality Remark</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="qualityRemark"
+                                            name="qualityRemark" placeholder="Quality Remark" autocomplete="off"
+                                            autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="storageLocation" class="col-sm-2 col-form-label">Storage Location</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="storageLocation"
+                                            name="storageLocation" placeholder="Storage Location" autocomplete="off"
+                                            autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="edgeCondition" class="col-sm-2 col-form-label">Edge Condition</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="edgeCondition"
+                                            name="edgeCondition" placeholder="Edge Condition" autocomplete="off"
+                                            autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="plantNo" class="col-sm-2 col-form-label">Plant No</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="plantNo" name="plantNo"
+                                            placeholder="Plant No" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="plantLotNo" class="col-sm-2 col-form-label">Plant Lot No</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="plantLotNo" name="Plant Lot No"
+                                            placeholder="Tested Coating" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="inStock" class="col-sm-2 col-form-label">In Stock</label>
+                                    <div class="col-sm-7">
+                                        <input type="string" class="form-control" id="inStock" name="inStock"
+                                            placeholder="In Stock" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
                             </div>
-
                             <!--End body-->
 
                             <!--Footer-->

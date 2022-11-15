@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <form method="POST" action="{{ url('admin/lots', $lots->id) }}" class="form-horizontal">
                         @csrf
-                        @method('PUT')
+                        @method('PATCH')
                         <div class="card">
                             <!--Header-->
                             <div class="card-header card-header-primary">
@@ -21,7 +21,7 @@
                                     <label for="title" class="col-sm-2 col-form-label">Title</label>
                                     <div class="col-sm-7">
                                         <input type="text" class="form-control" id="title" name="title"
-                                            placeholder="Title" required value={{ $lots ? $lots->title : '' }}>
+                                            value="{{ $lots ? $lots->title : '' }}" placeholder="Title" required>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -30,30 +30,101 @@
                                         <textarea class="form-control" id="description" name="description" placeholder="Description"> {{ $lots ? $lots->description : '' }} </textarea>
                                     </div>
                                 </div>
-                             {{-- <div class="row">
-                                    <label for="materials" class="col-sm-2 col-form-label">Materials</label>
-                                    <select class="selectpicker form-control " multiple data-live-search="true" name="materials[]">
-                                      @foreach($materials as $matr)
-                                      <option value="{{$matr->id}}" @if($lots && $lots->material->contains($mtr->id)) selected @endif>{{$matr->title}}</option>
-                                      @endforeach
-                                    </select>
-                                  </div> --}}
 
+                                <div class="row">
+                                    <label for="seller" class="col-sm-2 col-form-label">Seller</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" id="seller" name="seller"
+                                            value="{{ $lots ? $lots->seller : '' }}" placeholder="Seller" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <label for="plant" class="col-sm-2 col-form-label">Plant</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" id="plant" name="plant"
+                                            value="{{ $lots ? $lots->plant : '' }}" placeholder="plant" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="materialLocation" class="col-sm-2 col-form-label">Material Location</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" id="materialLocation"
+                                            name="materialLocation" value="{{ $lots ? $lots->materialLocation : '' }}"
+                                            placeholder="materialLocation" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" id="quantity" name="quantity"
+                                            value="{{ $lots ? $lots->quantity : '' }}" placeholder="Quantity" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" id="quantity" name="quantity"
+                                            value="{{ $lots ? $lots->quantity : '' }}" placeholder="Quantity" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <label for="startDate" class="col-sm-2 col-form-label">Start Date</label>
+                                    <div class="col-sm-7">
+                                        <input type="datetime-local" class="form-control" id="startDate" name="startDate"
+                                            value="{{ $lots ? $lots->startDate : '' }}" placeholder="Start Date" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="endDate" class="col-sm-2 col-form-label">End Date</label>
+                                    <div class="col-sm-7">
+                                        <input type="datetime-local" class="form-control" id="endDate" name="endDate"
+                                            value="{{ $lots ? $lots->endDate : '' }}" placeholder="End Date" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <label for="material" class="col-sm-2 col-form-label">Materials</label>
+                                    <div class="col-sm-7">
+                                        <select class="form-select form-control" multiple data-live-search="true"
+                                            name="material[]">
+                                            @foreach ($materials as $matr)
+                                                <option value="{{ $matr->id }}"
+                                                    @if ($lots && $lots->material->contains($mtr->id)) selected @endif>
+                                                    {{ $matr->title }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="startPrice" class="col-sm-2 col-form-label">Start Price</label>
+                                    <div class="col-sm-7">
+                                        <input type="number" class="form-control" id="startPrice" name="startPrice"
+                                            value="{{ $lots ? $lots->startPrice : '' }}" placeholder="Start Price"
+                                            autocomplete="off" autofocus>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <label for="title" class="col-sm-2 col-form-label">Date</label>
                                     <div class="col-sm-7">
                                         <input type="date" class="form-control" id="date" name="date"
-                                            placeholder="Ingrese el post title" autocomplete="off" value={{ $lots ? $lots->date : '' }} autofocus >
+                                            value="{{ $lots ? $lots->date : '' }}" placeholder="Ingrese el post title"
+                                            autocomplete="off" autofocus>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Start Amount</label>
+                                    <label for="Auction" class="col-sm-2 col-form-label">Auction</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" id="startAmount" name="startAmount"
-                                            placeholder="Enter Amount" autocomplete="off" autofocus value={{ $lots ? $lots->startAmount : '' }}>
+                                        <input type="text" class="form-control" id="Auction" name="Auction"
+                                            value="{{ $lots ? $lots->Auction : '' }}" placeholder="Auction"
+                                            autocomplete="off" autofocus>
                                     </div>
                                 </div>
                             </div>
+
 
                             <!--End body-->
 
@@ -64,44 +135,13 @@
                             </div>
                             <!--End footer-->
                         </div>
-                            {{-- <div class="card-body">
-                                <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Starting Price</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="starting_price"
-                                            placeholder="Ingrese el title" value="{{ old('starting_price', $lots->starting_price) }}"
-                                            autocomplete="off" autofocus>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Last Bid</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="last_bid"
-                                            placeholder="Ingrese el title" value="{{ old('last_bid', $lots->last_bid) }}"
-                                            autocomplete="off" autofocus>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Auction Date</label>
-                                    <div class="col-sm-7">
-                                        <input type="date" class="form-control" name="auction_date"
-                                            placeholder="Ingrese el title" value="{{ old('auction_date', $lots->auction_date) }}"
-                                            autocomplete="off" autofocus>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--End body-->
-                            <!--Footer-->
-                            <div class="card-footer ml-auto mr-auto">
-                                <a href="{{ route('admin.auctions.index') }}" class="btn btn-primary">Back</a>
-                                <button type="submit" class="btn btn-primary">Update</button>
-                            </div> --}}
+                       
 
-                        </div>
-                        <!--End footer-->
-                    </form>
                 </div>
+                <!--End footer-->
+                </form>
             </div>
         </div>
+    </div>
     </div>
 @endsection

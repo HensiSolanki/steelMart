@@ -41,7 +41,7 @@ Route::post('/newmaterials', [MaterialsController::class, 'store']);
 Route::get('/materials/{materials}', [MaterialsController::class, 'show']);
 Route::get('/materials/{materials}/edit', [MaterialsController::class, 'edit']);
 Route::patch('/materials/{materials}', [MaterialsController::class, 'update']);
-Route::delete('/materials/{materials}', [MaterialsController::class, 'destroy']);
+Route::delete('/materials/{materials}/destroy', [MaterialsController::class, 'destroy']);
 
 // Categories Routes
 Route::get('/categories', [CategoriesController::class, 'index']);

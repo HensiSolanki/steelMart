@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class materials extends Model
 {
     use HasFactory;
-    protected $fillable = ['title',    'description',    'height',    'width',    'length',    'weight',    'inStock',    'price', 'categoryId', 'customFields', 'uid'];
+
+    protected $fillable = [
+        "title", "description", "categoryId", "uid", "thick", "height", "weight", "width", "price",  "coilLength", "JSWgrade",
+        "grade", "majorDefect", "coating", "testedCoating", "tinTemper", "eqSpeci", "heatNo", "passivation", "coldTreatment",
+        "plantNo", "qualityRemark", "storageLocation", "edgeCondition", "plantLotNo", "inStock",
+    ];
 
     public function categories()
     {
