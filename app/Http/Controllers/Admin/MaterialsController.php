@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -27,7 +26,7 @@ class MaterialsController extends Controller
     public function create()
     {
         $addForm = true;
-        $materials  = null;
+        $materials = null;
         $categorys = categories::all();
         return view('admin.materials.create', compact('addForm', 'materials', 'categorys'));
     }
@@ -35,7 +34,7 @@ class MaterialsController extends Controller
     public function store(Request $request)
     {
         $userdetails = Auth::guard('admin')->user();
-        $data = $request->validate([
+        $this->validate($request, [
             'title' => 'required|min:0',
             'description' => 'nullable',
             'categoryId' => 'nullable',
@@ -63,14 +62,41 @@ class MaterialsController extends Controller
             'plantLotNo' => 'nullable',
             'inStock' => 'nullable',
         ]);
-        dd($data);
-        $details = materials::create(['uid' => $userdetails->id, ...$data]);
+        $input = $request->only([
+            'title', 'description', 'categoryId', 'thick', 'height',
+            'weight',
+            'width',
+            'price',
+            'coilLength',
+            'JSWgrade',
+            'grade',
+            'qty',
+            'majorDefect',
+            'coating',
+            'testedCoating',
+            'tinTemper',
+            'eqSpeci',
+            'heatNo',
+            'passivation',
+            'coldTreatment',
+            'plantNo',
+            'qualityRemark',
+            'storageLocation',
+            'edgeCondition',
+            'plantLotNo',
+            'inStock',
+        ]);
+        $input['uid'] = $userdetails->id;
+        // dd($input);
+        $details = materials::create($input);
         return redirect('admin/materials');
     }
 
     public function show(materials $materials)
     {
         //
+
+
     }
 
     public function edit(materials $materials)

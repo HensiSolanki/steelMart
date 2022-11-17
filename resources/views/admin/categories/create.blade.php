@@ -46,7 +46,7 @@
 
                             <!--Footer-->
                             <div class="card-footer ml-auto mr-auto">
-                                <a href="{{ route('admin.auctions.index') }}" class="btn btn-primary">Back</a>
+                                <a href="{{ route('admin.categories') }}" class="btn btn-primary">Back</a>
                                 <button type="submit" class="btn btn-primary">Add</button>
                             </div>
                             <!--End footer-->

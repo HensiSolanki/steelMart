@@ -19,7 +19,7 @@
                     @endif
                     <div class="row">
                       <div class="col-12 text-right">
-                        <a href="{{ route('admin.auctions.create') }}" class="btn btn-sm btn-facebook">Add</a>
+                        <a href="{{ route('admin.users.create') }}" class="btn btn-sm btn-facebook">Add</a>
                       </div>
                     </div>
                     <div class="table-responsive">

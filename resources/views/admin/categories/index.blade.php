@@ -1,4 +1,4 @@
-@extends('admin.layouts.main', ['activePage' => 'auctions', 'titlePage' => 'Auctions'])
+@extends('admin.layouts.main', ['activePage' => 'categories', 'titlePage' => 'Categories'])
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -8,8 +8,8 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title">Auctions</h4>
-                                    <p class="card-category">Add Auctions</p>
+                                    <h4 class="card-title">Categories</h4>
+                                    <p class="card-category">Add Categories</p>
                                 </div>
                                 <div class="card-body">
                                     @if (session('success'))

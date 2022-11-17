@@ -20,14 +20,14 @@
                                     <label for="title" class="col-sm-2 col-form-label">Name</label>
                                     <div class="col-sm-7">
                                         <input type="text" class="form-control" name="name"
-                                            placeholder="Auction Price" autocomplete="off" autofocus>
+                                            placeholder="User's Name" autocomplete="off" autofocus>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label for="title" class="col-sm-2 col-form-label">Email</label>
                                     <div class="col-sm-7">
                                         <input type="email" class="form-control" name="email"
-                                            placeholder="Last Bid" autocomplete="off" autofocus>
+                                            placeholder="User's Email" autocomplete="off" autofocus>
                                     </div>
                                 </div>
                                 {{-- <div class="row">
@@ -50,7 +50,7 @@
 
                             <!--Footer-->
                             <div class="card-footer ml-auto mr-auto">
-                                <a href="{{ route('admin.auctions.index') }}" class="btn btn-primary">Back</a>
+                                <a href="{{ route('admin.users.index') }}" class="btn btn-primary">Back</a>
                                 <button type="submit" class="btn btn-primary">Add</button>
                             </div>
                             <!--End footer-->

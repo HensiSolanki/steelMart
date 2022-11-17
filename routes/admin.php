@@ -35,7 +35,7 @@ Route::resource('users', 'UserController');
 Route::get('/lots', [LotsController::class, 'index'])->name('home');
 
 // Materials Routes
-Route::get('/materials', [MaterialsController::class, 'index']);
+Route::get('/materials', [MaterialsController::class, 'index'])->name('materials');
 Route::get('/materials/create', [MaterialsController::class, 'create']);
 Route::post('/newmaterials', [MaterialsController::class, 'store']);
 Route::get('/materials/{materials}', [MaterialsController::class, 'show']);
@@ -44,7 +44,7 @@ Route::patch('/materials/{materials}', [MaterialsController::class, 'update']);
 Route::delete('/materials/{materials}/destroy', [MaterialsController::class, 'destroy']);
 
 // Categories Routes
-Route::get('/categories', [CategoriesController::class, 'index']);
+Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
 Route::get('/categories/create', [CategoriesController::class, 'create']);
 Route::get('/categories/show/{categories}', [CategoriesController::class, 'show']);
 Route::post('/categories/store', [CategoriesController::class, 'store']);

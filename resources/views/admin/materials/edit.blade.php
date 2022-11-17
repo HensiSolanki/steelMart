@@ -1,4 +1,4 @@
-@extends('admin.layouts.main', ['activePage' => 'auction', 'titlePage' => 'Editar Post'])
+@extends('admin.layouts.main', ['activePage' => 'materials', 'titlePage' => 'Edit Materials'])
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -15,10 +15,9 @@
                                 @endforeach
                             </ul>
                             <!--Header-->
-                            {{$materials}}
                             <div class="card-header card-header-primary">
-                                <h4 class="card-title">Editar post</h4>
-                                <p class="card-category">Editar datos del post</p>
+                                <h4 class="card-title">Edit Materials</h4>
+                                <p class="card-category">Edit Materials</p>
                             </div>
                             <!--End header-->
                             <!--Body-->
@@ -41,10 +40,10 @@
                                 <div class="row">
                                     <label for="categoryId" class="col-sm-2 col-form-label">Category</label>
                                     <div class="col-sm-7">
-                                        <select class="form-select" id="categoryId" name="categoryId">
+                                        <select class="form-select form-control" id="categoryId" name="categoryId">
                                             @foreach ($categorys as $category)
                                                 <option value={{ $category->id }}
-                                                    @if (!$addForm && $materials->categoryId == $category->id) selected @endif>
+                                                    @if ($materials->categoryId == $category->id) selected @endif>
                                                     {{ $category->title }}
                                                 </option>
                                             @endforeach
@@ -76,10 +75,10 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label for="length" class="col-sm-2 col-form-label">Length</label>
+                                    <label for="coilLength" class="col-sm-2 col-form-label">Coil Length</label>
                                     <div class="col-sm-7">
-                                        <input type="number" class="form-control" id="length" name="length"
-                                            value="{{ $materials ? $materials->length : '' }}" placeholder="Length"
+                                        <input type="number" class="form-control" id="coilLength" name="coilLength"
+                                            value="{{ $materials ? $materials->coilLength : '' }}" placeholder="Coil Length"
                                             autocomplete="off" autofocus>
                                     </div>
                                 </div>
@@ -107,14 +106,7 @@
                                             autocomplete="off" autofocus>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <label for="coilLength" class="col-sm-2 col-form-label">Coil Length</label>
-                                    <div class="col-sm-7">
-                                        <input type="string" class="form-control" id="coilLength" name="coilLength"
-                                            value="{{ $materials ? $materials->coilLength : '' }}"
-                                            placeholder="Coil Length" autocomplete="off" autofocus>
-                                    </div>
-                                </div>
+
                                 <div class="row">
                                     <label for="JSWgrade" class="col-sm-2 col-form-label">JSW Grade</label>
                                     <div class="col-sm-7">
@@ -134,8 +126,8 @@
                                 <div class="row">
                                     <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
                                     <div class="col-sm-7">
-                                        <input type="string" class="form-control" id="quantity" name="quantity"
-                                            value="{{ $materials ? $materials->quantity : '' }}" placeholder="Quantity"
+                                        <input type="string" class="form-control" id="quantity" name="qty"
+                                            value="{{ $materials ? $materials->qty : '' }}" placeholder="Quantity"
                                             autocomplete="off" autofocus>
                                     </div>
                                 </div>
@@ -260,28 +252,26 @@
                                 <div class="row">
                                     <label for="plantLotNo" class="col-sm-2 col-form-label">Plant Lot No</label>
                                     <div class="col-sm-7">
-                                        <input type="string" class="form-control" id="plantLotNo"
-                                            name="Plant  value="{{ $materials ? $materials->Plant : '' }}"Lot No"
+                                        <input type="number" class="form-control" id="plantLotNo" name="plantLotNo"
+                                            value="{{ $materials ? $materials->plantLotNo : '' }}"
                                             placeholder="Tested Coating" autocomplete="off" autofocus>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label for="inStock" class="col-sm-2 col-form-label">In Stock</label>
                                     <div class="col-sm-7">
-                                        <input type="string" class="form-control" id="inStock" name="inStock"
+                                        <input type="number" class="form-control" id="inStock" name="inStock"
                                             value="{{ $materials ? $materials->inStock : '' }}" placeholder="In Stock"
                                             autocomplete="off" autofocus>
                                     </div>
                                 </div>
                             </div>
-
                             <!--End body-->
                             <!--Footer-->
                             <div class="card-footer ml-auto mr-auto">
-                                <a href="{{ route('admin.auctions.index') }}" class="btn btn-primary">Back</a>
+                                <a href="{{ route('admin.materials') }}" class="btn btn-primary">Back</a>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
-
                         </div>
                         <!--End footer-->
                     </form>
