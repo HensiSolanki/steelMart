@@ -29,7 +29,7 @@
                                         <textarea class="form-control" id="description" name="description" placeholder="Description"> {{ $lots ? $lots->description : '' }} </textarea>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <label for="seller" class="col-sm-2 col-form-label">Seller</label>
                                     <div class="col-sm-7">
@@ -37,7 +37,7 @@
                                             placeholder="Seller" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <label for="plant" class="col-sm-2 col-form-label">Plant</label>
                                     <div class="col-sm-7">
@@ -59,15 +59,7 @@
                                             placeholder="Quantity" required>
                                     </div>
                                 </div>
-                                
-                                <div class="row">
-                                    <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" id="quantity" name="quantity"
-                                            placeholder="Quantity" required>
-                                    </div>
-                                </div>
-                                
+
                                 <div class="row">
                                     <label for="startDate" class="col-sm-2 col-form-label">Start Date</label>
                                     <div class="col-sm-7">
@@ -82,7 +74,7 @@
                                             placeholder="End Date" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <label for="material" class="col-sm-2 col-form-label">Materials</label>
                                     <div class="col-sm-7">

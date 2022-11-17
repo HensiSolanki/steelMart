@@ -63,7 +63,7 @@ class MaterialsController extends Controller
             'plantLotNo' => 'nullable',
             'inStock' => 'nullable',
         ]);
-        // dd($data);
+        dd($data);
         $details = materials::create(['uid' => $userdetails->id, ...$data]);
         return redirect('admin/materials');
     }

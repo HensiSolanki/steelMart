@@ -142,14 +142,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label for="testedCoating" class="col-sm-2 col-form-label">Tested Coating</label>
-                                    <div class="col-sm-7">
-                                        <input type="string" class="form-control" id="testedCoating"
-                                            name="testedCoating" placeholder="Tested Coating" autocomplete="off"
-                                            autofocus>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <label for="tinTemper" class="col-sm-2 col-form-label">Tin Temper</label>
                                     <div class="col-sm-7">
                                         <input type="string" class="form-control" id="tinTemper" name="tinTemper"
