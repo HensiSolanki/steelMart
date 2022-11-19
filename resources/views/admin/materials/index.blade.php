@@ -40,7 +40,7 @@
                                                         <td>{{ $material->description }}</td>
                                                         <td>{{ $material->price }}</td>
                                                         <td class="td-actions text-right">
-                                                            <a href="{{ url('admin/materials/' . $material->id . '/show') }}"
+                                                            <a href="{{ url('admin/materials/' . $material->id) }}"
                                                                 class="btn btn-info"><i
                                                                     class="material-icons">person</i></a>
                                                             <a href="{{ url('admin/materials/' . $material->id . '/edit') }}"

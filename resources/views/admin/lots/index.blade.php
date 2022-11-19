@@ -37,7 +37,7 @@
                               <td>{{ $lot->id }}</td>
                               <td>{{ $lot->title }}</td>
                               <td>{{ $lot->description }}</td>
-                              <td>{{ $lot->status }}</td>
+                              <td>{{ $lot->lot_status }}</td>
                               <td class="td-actions text-right">
                                 <a href="{{ url('admin/lots', $lot->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
                                 <a href="{{ url('admin/lots/edit', $lot->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>

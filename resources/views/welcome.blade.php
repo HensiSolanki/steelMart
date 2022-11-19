@@ -434,12 +434,12 @@
                         Log In
                     </button>
                     <div class="dropdown-menu">
-                        <a href="{{ route('login') }}" class="dropdown-item">Log in</a>
+                        {{-- <a href="{{ route('login') }}" class="dropdown-item">Log in</a> --}}
                         <a href="{{ route('admin.login') }}" class="dropdown-item">Log In AS Admin</a>
-                        <a href="{{ route('seller.login') }}" class="dropdown-item">Log In AS Seller</a>
+                        {{-- <a href="{{ route('seller.login') }}" class="dropdown-item">Log In AS Seller</a> --}}
                     </div>
                 </div>
-                <div class="btn-group">
+                {{-- <div class="btn-group">
                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Register
@@ -448,7 +448,7 @@
                         <a href="{{ route('register') }}" class="dropdown-item">Register</a>
                         <a href="{{ route('seller.register') }}" class="dropdown-item">Register AS Seller</a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         @endif
 

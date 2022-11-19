@@ -30,20 +30,69 @@
                                             placeholder="User's Email" autocomplete="off" autofocus>
                                     </div>
                                 </div>
-                                {{-- <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Auction Date</label>
+                                <div class="row">
+                                    <label for="title" class="col-sm-2 col-form-label">Password</label>
                                     <div class="col-sm-7">
-                                        <input type="date" class="form-control" name="auction_date"
-                                            placeholder="Ingrese el post title" autocomplete="off" autofocus>
+                                        <input type="password" class="form-control" name="password"
+                                            placeholder="User's Password" autocomplete="off" autofocus>
                                     </div>
-                                </div> --}}
-                                {{-- <div class="row">
-                                    <label for="title" class="col-sm-2 col-form-label">Auction</label>
+                                </div>
+                                <div class="row">
+                                    <label for="title" class="col-sm-2 col-form-label">Contact No</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="title"
-                                            placeholder="Ingrese el post title" autocomplete="off" autofocus>
+                                        <input type="number" class="form-control" name="contactNo"
+                                            placeholder="Enter Number" autocomplete="off" autofocus>
                                     </div>
-                                </div> --}}
+                                </div>
+                                <div class="row">
+                                    <label for="title" class="col-sm-2 col-form-label">Adhar No.</label>
+                                    <div class="col-sm-7">
+                                        <input type="number" class="form-control" name="adharNo"
+                                            placeholder="Enter Adhar Card Number" autocomplete="off" autofocus>
+                                    </div>
+                                </div>  <div class="row">
+                                    <label for="title" class="col-sm-2 col-form-label">GST No.</label>
+                                    <div class="col-sm-7">
+                                        <input type="number" class="form-control" name="GSTNo"
+                                            placeholder="Enter GST No" autocomplete="off" autofocus>
+                                    </div>
+                                </div>  <div class="row">
+                                    <label for="title" class="col-sm-2 col-form-label">PAN No.</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" name="PanNo"
+                                            placeholder="Enter Pan No" autocomplete="off" autofocus>
+                                    </div>
+                                </div>  <div class="row">
+                                    <label for="title" class="col-sm-2 col-form-label">Address</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" name="address"
+                                            placeholder="Enter Address" autocomplete="off" autofocus>
+                                    </div>
+                                </div>  <div class="row">
+                                    <label for="title" class="col-sm-2 col-form-label">City</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" name="city"
+                                            placeholder="Enter City" autocomplete="off" autofocus>
+                                    </div>
+                                </div>  <div class="row">
+                                    <label for="title" class="col-sm-2 col-form-label">State</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" name="state"
+                                            placeholder="Enter State" autocomplete="off" autofocus>
+                                    </div>
+                                </div><div class="row">
+                                    <label for="title" class="col-sm-2 col-form-label">Pincode</label>
+                                    <div class="col-sm-7">
+                                        <input type="number" class="form-control" name="pincode"
+                                            placeholder="Enter Pincode" autocomplete="off" autofocus>
+                                    </div>
+                                </div><div class="row">
+                                    <label for="title" class="col-sm-2 col-form-label">Compny Name</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" name="compnyName"
+                                            placeholder="Enter Compny Name" autocomplete="off" autofocus>
+                                    </div>
+                                </div>
                             </div>
 
                             <!--End body-->

@@ -29,7 +29,7 @@
                                         <textarea type="text" class="form-control" name="description" placeholder="Description" autocomplete="off" autofocus>{{ $categories->description }}</textarea>
                                     </div>
                                 </div>
-                                <div class="row">
+                                {{-- <div class="row">
                                     <label for="categoryId" class="col-sm-2 col-form-label">Category</label>
                                     <div class="col-sm-7">
                                         <select class="form-select form-control" id="categoryId" name="categoryId">
@@ -42,7 +42,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <!--End body-->
                             <!--Footer-->

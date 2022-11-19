@@ -99,9 +99,8 @@ class MaterialsController extends Controller
 
     public function show(materials $materials)
     {
-        //
-
-
+        $categorys = categories::all();
+        return view('admin.materials.show', compact('materials', 'categorys'));
     }
 
     public function edit(materials $materials)

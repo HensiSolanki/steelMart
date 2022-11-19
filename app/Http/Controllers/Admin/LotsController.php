@@ -37,7 +37,6 @@ class LotsController extends Controller
         $details = $request->validate([
             'title' => 'required',
             'description' => 'nullable',
-            'status' => 'nullable',
             "seller" => "required",
             "plant" => "nullable",
             "materialLocation" => "nullable",
@@ -47,9 +46,8 @@ class LotsController extends Controller
             "material" => "required",
             "startPrice" => "required",
             "date" => "required",
-            "Auction" => "nullable",
-
         ]);
+        $details['lot_status'] = 'upcoming';
         $details['uid'] = $userDetails->id;
         $data = lots::create($details);
         $data->materials()->attach(array_key_exists('material', $details) ? $details['material'] : []);

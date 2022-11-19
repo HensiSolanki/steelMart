@@ -28,8 +28,6 @@
                                             <thead class="text-primary">
                                                 <th>ID</th>
                                                 <th>Title</th>
-                                                <th>Parent Category</th>
-                                                <th>Status</th>
                                                 <th class="text-right">Actions</th>
                                             </thead>
                                             <tbody>
@@ -37,8 +35,6 @@
                                                     <tr>
                                                         <th>{{ $categorie->id }}</th>
                                                         <td>{{ $categorie->title }}</td>
-                                                        <td>{{ $categorie->parentcategory }}</td>
-                                                        <td>{{ $categorie->status }}</td>
                                                         <td class="td-actions text-right">
                                                             <a href="{{ url('admin/categories/show', $categorie->id) }}"
                                                                 class="btn btn-info"><i

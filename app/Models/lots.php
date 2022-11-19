@@ -10,7 +10,7 @@ class lots extends Model
     use HasFactory;
     protected  $fillable =    [
         'title', 'description', 'uid', 'seller', 'plant', 'materialLocation', 'quantity',
-        'startDate', 'endDate', 'price', 'auction', 'status', 'customFields',
+        'startDate', 'endDate', 'price', 'auction_status', 'lot_status', 'customFields',
     ];
 
     public function materials()

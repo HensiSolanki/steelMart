@@ -38,6 +38,7 @@ Route::get('/lots', [LotsController::class, 'index'])->name('home');
 Route::get('/materials', [MaterialsController::class, 'index'])->name('materials');
 Route::get('/materials/create', [MaterialsController::class, 'create']);
 Route::post('/newmaterials', [MaterialsController::class, 'store']);
+
 Route::get('/materials/{materials}', [MaterialsController::class, 'show']);
 Route::get('/materials/{materials}/edit', [MaterialsController::class, 'edit']);
 Route::patch('/materials/{materials}', [MaterialsController::class, 'update']);

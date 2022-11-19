@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Auction extends Model
 {
     use HasFactory;
-    protected $fillable = ['starting_price','last_bid','auction_date'];
+    protected $fillable = ['starting_price','last_bid','auction_date','lot_id'];
 }

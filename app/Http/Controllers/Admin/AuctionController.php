@@ -35,7 +35,9 @@ class AuctionController extends Controller
      */
     public function create()
     {
-        return view('admin.auctions.create');
+        $materials = null;
+        $categorys = \App\Models\lots::all();
+        return view('admin.auctions.create',compact('materials', 'categorys'));
     }
 
     /**
@@ -70,7 +72,8 @@ class AuctionController extends Controller
      */
     public function edit(Auction $auction)
     {
-        return view('admin.auctions.edit', compact('auction'));
+        $categorys = \App\Models\lots::all();
+        return view('admin.auctions.edit', compact('auction','categorys'));
     }
 
     /**

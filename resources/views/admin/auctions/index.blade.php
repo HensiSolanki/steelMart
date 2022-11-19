@@ -35,7 +35,9 @@
                             <tr>
                               <td>{{ $auction->id }}</td>
                               <td>{{ $auction->last_bid }}</td>
-                              <td>{{ $auction->status }}</td>
+                              {{-- <td><a href="{{ route('admin.auctions.show', $auction->id) }}" class="btn btn-info"><i class="material-icons">person</i></a></td> --}}
+                              <td><input type="checkbox" id="vehicle1" name="vehicle1" value="{{ $auction->status }}" checked></td>
+
                               <td class="td-actions text-right">
                                 <a href="{{ route('admin.auctions.show', $auction->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
                                 <a href="{{ route('admin.auctions.edit', $auction->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>

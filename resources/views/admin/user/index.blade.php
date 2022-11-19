@@ -28,6 +28,7 @@
                           <th>ID</th>
                           <th>Name</th>
                           <th>Email</th>
+                          <th>isApproved</th>
                           <th class="text-right">User</th>
                         </thead>
                         <tbody>
@@ -36,6 +37,7 @@
                               <td>{{ $user->id }}</td>
                               <td>{{ $user->name }}</td>
                               <td>{{ $user->email }}</td>
+                              <td><input type="checkbox" id="isApproved" name="isApproved" value="{{ $user->status }}" checked></td>
                               <td class="td-actions text-right">
                                 <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
                                 <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>

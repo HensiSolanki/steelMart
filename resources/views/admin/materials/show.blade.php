@@ -7,7 +7,7 @@
         <div class="card">
           <!--Header-->
           <div class="card-header card-header-primary">
-            <h4 class="card-title">Auctions</h4>
+            <h4 class="card-title">Materials</h4>
           </div>
           <!--End header-->
           <!--Body-->
@@ -24,13 +24,16 @@
                         <div class="block block-three"></div>
                         <div class="block block-four"></div>
                         <a href="#">
-                          <img class="avatar" src="{{ asset('/img/default-avatar.png') }}" alt="">
-                          <h5 class="title mt-3">{{ $auction->starting_price }}</h5>
+                          {{-- <img class="avatar" src="{{ asset('/img/default-avatar.png') }}" alt=""> --}}
+                          <h5 class="title mt-3">{{ $materials->title }}</h5>
                         </a>
                         <p class="description">
                           {{ _('Description') }} <br>
-                          {{ $auction->starting_price }} <br>
-                          {{ $auction->last_bid }}
+                          {{ $materials->description }} <br>
+                          {{ _('Height') }} <br>
+                          {{ $materials->height }} <br>
+                          {{ _('Width') }} <br>
+                          {{ $materials->width }}
                         </p>
                       </div>
                     </p>
@@ -40,9 +43,12 @@
                   </div>
                   <div class="card-footer">
                     <div class="button-container">
-                      <button type="submit" class="btn btn-sm btn-primary">Editar</button>
+                        <a href="{{ url('admin/materials/') }}"
+                            class="btn btn-sm btn-primary">Back</a>
+                        <a href="{{ url('admin/materials/' . $materials->id . '/edit') }}"
+                            class="btn btn-sm btn-primary">Update</a>
                     </div>
-                  </div>
+                </div>
                 </div>
               </div>
               <!--end first-->

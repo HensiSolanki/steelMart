@@ -31,7 +31,6 @@ class CategoriesController extends Controller
         categories::create($request->validate([
             'title' => 'required',
             "description" => "nullable",
-            "parentcategory" => "nullable",
         ]));
         return redirect('admin/categories');
     }
@@ -55,7 +54,6 @@ class CategoriesController extends Controller
         $categories->update($request->validate([
             'title' => 'required',
             "description" => "nullable",
-            "parentcategory" => "nullable",
         ]));
         return redirect('admin/categories/show/' . $categories->id);
     }

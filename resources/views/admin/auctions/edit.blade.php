@@ -17,10 +17,22 @@
                             <!--Body-->
                             <div class="card-body">
                                 <div class="row">
+                                    <label for="categoryId" class="col-sm-2 col-form-label">Lot Name</label>
+                                    <div class="col-sm-7">
+                                        <select class="form-select form-control" id="lot_id" name="lot_id">
+                                            @foreach ($categorys as $category)
+                                                <option value={{ $category->id }}
+                                                    @if ($auction->lot_id == $category->id) selected @endif>{{ $category->title }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <label for="title" class="col-sm-2 col-form-label">Starting Price</label>
                                     <div class="col-sm-7">
                                         <input type="text" class="form-control" name="starting_price"
-                                            placeholder="Ingrese el title" value="{{ old('starting_price', $auction->starting_price) }}"
+                                            placeholder="Enter Price" value="{{ old('starting_price', $auction->starting_price) }}"
                                             autocomplete="off" autofocus>
                                     </div>
                                 </div>

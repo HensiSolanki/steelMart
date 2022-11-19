@@ -29,7 +29,7 @@
                                                         <span class="h5"> {{ $categories->description }}</span>
                                                     </header>
                                                 </div>
-                                                <div class="block block-three">
+                                                {{-- <div class="block block-three">
                                                     <header class="h4">Parent Category :
                                                         <span class="h5"> {{ $categories->parentcategory }}</span>
                                                     </header>
@@ -38,7 +38,7 @@
                                                     <header class="h4">Status :
                                                         <span class="h5"> Active</span>
                                                     </header>
-                                                </div>
+                                                </div> --}}
                                                 {{-- <a href="#">
                           <img class="avatar" src="{{ asset('/img/default-avatar.png') }}" alt="">
                           <h5 class="title mt-3">{{ $auction->starting_price }}</h5>
@@ -56,6 +56,8 @@
                                         </div>
                                         <div class="card-footer">
                                             <div class="button-container">
+                                                <a href="{{ url('admin/categories/') }}"
+                                                    class="btn btn-sm btn-primary">Back</a>
                                                 <a href="{{ url('admin/categories/' . $categories->id . '/edit') }}"
                                                     class="btn btn-sm btn-primary">Update</a>
                                             </div>
