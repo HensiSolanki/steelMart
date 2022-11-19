@@ -91,9 +91,8 @@
                                         <select class="form-select form-control" multiple data-live-search="true"
                                             name="material[]">
                                             @foreach ($materials as $matr)
-                                                <option value="{{ $matr->id }}"
-                                                    @if ($lots && $lots->material->contains($mtr->id)) selected @endif>
-                                                    {{ $matr->title }}
+                                                <option value="{{ $matr->id }}
+                                                    {{ $matr }}
                                                 </option>
                                             @endforeach
                                         </select>

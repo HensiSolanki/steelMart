@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -63,7 +64,11 @@ class MaterialsController extends Controller
             'inStock' => 'nullable',
         ]);
         $input = $request->only([
-            'title', 'description', 'categoryId', 'thick', 'height',
+            'title',
+            'description',
+            'categoryId',
+            'thick',
+            'height',
             'weight',
             'width',
             'price',
@@ -108,7 +113,7 @@ class MaterialsController extends Controller
     public function update(Request $request, materials $materials)
     {
         $materials->update($request->validate([
-            'title' => 'required|min:0',
+            'title' => 'required|',
             'description' => 'nullable',
             'categoryId' => 'nullable',
             'thick' => 'required|min:0',
