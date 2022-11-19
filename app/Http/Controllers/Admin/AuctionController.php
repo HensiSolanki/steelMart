@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Auction;
 use Illuminate\Http\Request;
+use DataTables;
 
 class AuctionController extends Controller
 {
@@ -17,10 +18,25 @@ class AuctionController extends Controller
     {
         $this->middleware('admin.auth:admin');
     }
-    public function index()
+    public function index(Request $request)
     {
           // get all the sharks
+
           $auctions = Auction::all();
+        //   dd($request->ajax());
+          if ($request->ajax()) {
+            return Datatables::of($auctions)
+                    ->addIndexColumn()
+                    // ->addColumn('action', function($row){
+
+                    //        $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+
+                    //         return $btn;
+                    // })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+
 
           // load the view and pass the sharks
 

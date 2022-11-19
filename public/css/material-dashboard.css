@@ -10740,13 +10740,15 @@ fieldset[disabled][disabled] .btn-group-raised .btn,
 
 .btn .material-icons,
 .btn:not(.btn-just-icon):not(.btn-fab) .fa {
-  position: relative;
-  display: inline-block;
-  top: 0;
-  margin-top: -1em;
-  margin-bottom: -1em;
-  font-size: 1.1rem;
-  vertical-align: middle;
+    position: relative;
+    display: inline-block;
+    top: 7px;
+    margin-top: -1em;
+    margin-bottom: -1em;
+    margin-left: -16px;
+    font-size: 1.1rem;
+    vertical-align: inherit;
+    width: 0px;
 }
 
 .bg-inverse fieldset[disabled][disabled] .btn,
@@ -18857,5 +18859,5 @@ Copyright (c) 2015 Daniel Eden
     list-style: none;
 }
 
-
+}
 /*# sourceMappingURL=dashboard-free.css.map */
