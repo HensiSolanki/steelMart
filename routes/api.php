@@ -25,6 +25,7 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', ['namespace' => 'App\Http\Controllers\Api\v1\Admin'], function ($api) {
 
     $api->post('auth/signUp', 'Auth\SignUpController@signUp');
+    $api->post('auth/updateUser/{id}', 'Auth\SignUpController@updateUser');
     $api->post('auth/login', 'Auth\SignUpController@login');
     $api->get('open', 'Auth\DemoController@open');
     $api->get('open', 'Auth\DemoController@open');

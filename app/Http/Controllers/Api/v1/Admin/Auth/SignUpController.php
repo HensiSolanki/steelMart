@@ -51,6 +51,32 @@ class SignUpController extends Controller
 
         return response()->json($data, 201);
     }
+    public function updateUser(Request $request,$id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|string',
+        ]);
+        if ($validator->fails()) {
+            $data = ['message' => $validator->errors()];
+            return response()->json($data);
+        }
+        $user=User::find($id);
+        $user->update($request->all());
+
+        // $user = User::update([
+        //     'name' => $request->get('name'),
+        //     'email' => $request->get('email'),
+        // ]);
+
+
+        $data = array(
+            'message' => 'User Updated Successfully',
+            'result' => $user
+        );
+
+        return response()->json($data, 201);
+    }
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
