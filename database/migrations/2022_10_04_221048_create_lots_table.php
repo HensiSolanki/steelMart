@@ -26,7 +26,7 @@ class CreateLotsTable extends Migration
             $table->string('StartDate');
             $table->string('EndDate');
             $table->string('Price')->nullable();
-            $table->string('Material')->nullable();
+            // $table->string('Material')->nullable();
             $table->string('Auction')->nullable();
             $table->boolean('status')->default(false);
             $table->string('customFields')->default('');

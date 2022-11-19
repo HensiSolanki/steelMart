@@ -44,16 +44,15 @@ class LotsController extends Controller
             "quantity" => "required",
             "startDate" => "required",
             "endDate" => "required",
-            "material" => "nullable",
+            "material" => "required",
             "startPrice" => "required",
             "date" => "required",
             "Auction" => "nullable",
 
         ]);
-        // dd($details);
-        $data = lots::create(['uid' => $userDetails->id, $details]);
-        // $data = lots::create($request->all());
-        $data->materials()->attach(array_key_exists('material', $details) ? $details['materials'] : []);
+        $details['uid'] = $userDetails->id;
+        $data = lots::create($details);
+        $data->materials()->attach(array_key_exists('material', $details) ? $details['material'] : []);
         return redirect('admin/lots');
     }
 
