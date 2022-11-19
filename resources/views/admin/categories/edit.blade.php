@@ -29,7 +29,6 @@
                                         <textarea type="text" class="form-control" name="description" placeholder="Description" autocomplete="off" autofocus>{{ $categories->description }}</textarea>
                                     </div>
                                 </div>
-44
                                 <div class="row">
                                     <label for="categoryId" class="col-sm-2 col-form-label">Category</label>
                                     <div class="col-sm-7">

@@ -2,7 +2,7 @@
     <div class="container-fluid">
       <nav class="float-left">
         <ul>
-          <li>
+          {{-- <li>
             <a href="#">
                 {{ __('Steel Mart') }}
             </a>
@@ -11,10 +11,10 @@
             <a href="#">
                 {{ __('About Us') }}
             </a>
-          </li>
+          </li> --}}
         </ul>
       </nav>
-      <div class="copyright float-right">
+      <div class="copyright float-center">
           <a href="#" target="_blank">Steel Mart Team</a>
         &copy;
         <script>

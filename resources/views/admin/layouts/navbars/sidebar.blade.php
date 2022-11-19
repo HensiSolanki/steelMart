@@ -23,10 +23,11 @@
                     <i class="material-icons">notifications</i>
                     <p>{{ __('Users') }}</p>
                 </a>
-            </li><li class="nav-item{{ $activePage == 'auctions' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.auctions.index') }}">
+            </li>
+            <li class="nav-item{{ $activePage == 'categories' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ url('admin/categories') }}">
                     <i class="material-icons">notifications</i>
-                    <p>{{ __('Auction') }}</p>
+                    <p>{{ __('Categories') }}</p>
                 </a>
             </li>
             <li class="nav-item{{ $activePage == 'materials' ? ' active' : '' }}">
@@ -35,16 +36,17 @@
                     <p>{{ __('Materials') }}</p>
                 </a>
             </li>
-            <li class="nav-item{{ $activePage == 'categories' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ url('admin/categories') }}">
-                    <i class="material-icons">notifications</i>
-                    <p>{{ __('Categories') }}</p>
-                </a>
-            </li>
+
             <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
                 <a class="nav-link" href="{{ url('admin/lots') }}">
                     <i class="material-icons">notifications</i>
                     <p>{{ __('Lots') }}</p>
+                </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'auctions' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.auctions.index') }}">
+                    <i class="material-icons">notifications</i>
+                    <p>{{ __('Auction') }}</p>
                 </a>
             </li>
         </ul>
