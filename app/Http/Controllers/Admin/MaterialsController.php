@@ -9,6 +9,7 @@ use App\Models\categories;
 use App\Models\materials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DataTables;
 
 class MaterialsController extends Controller
 {
@@ -18,10 +19,17 @@ class MaterialsController extends Controller
         $this->middleware('admin.auth:admin');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $materials = materials::all();
-        return view('admin.materials.index', compact('materials'));
+        if ($request->ajax()) {
+          return Datatables::of($materials)
+                  ->addIndexColumn()
+                  ->rawColumns(['action'])
+                  ->make(true);
+      }
+        return view('admin.materials.index')
+            ->with('materials', $materials);
     }
 
     public function create()

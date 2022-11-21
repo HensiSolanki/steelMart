@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\categories;
 use Illuminate\Http\Request;
+use DataTables;
 
 class CategoriesController extends Controller
 {
@@ -14,10 +15,17 @@ class CategoriesController extends Controller
     {
         $this->middleware('admin.auth:admin');
     }
-    public function index()
+    public function index(Request $request)
     {
         $categories = categories::all();
-        return view('admin.categories.index', compact('categories'));
+        if ($request->ajax()) {
+          return Datatables::of($categories)
+                  ->addIndexColumn()
+                  ->rawColumns(['action'])
+                  ->make(true);
+      }
+        return view('admin.categories.index')
+            ->with('categories', $categories);
     }
 
     public function create()

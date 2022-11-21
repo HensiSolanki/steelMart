@@ -9,6 +9,7 @@ use App\Models\lots;
 use App\Models\materials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\DataTables;
 
 class LotsController extends Controller
 {
@@ -17,10 +18,17 @@ class LotsController extends Controller
     {
         $this->middleware('admin.auth:admin');
     }
-    public function index()
+    public function index(Request $request)
     {
         $lots = lots::all();
-        return view('admin.lots.index', compact('lots'));
+        if ($request->ajax()) {
+          return Datatables::of($lots)
+                  ->addIndexColumn()
+                  ->rawColumns(['action'])
+                  ->make(true);
+      }
+        return view('admin.lots.index')
+            ->with('lots', $lots);
     }
 
     public function create()

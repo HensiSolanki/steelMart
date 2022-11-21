@@ -23,34 +23,16 @@
                       </div>
                     </div>
                     <div class="table-responsive">
-                      <table class="table">
-                        <thead class="text-primary">
+                      <table class="table data-table">
+                        <thead class="text-primary text-center">
                           <th>ID</th>
                           <th>Title</th>
                           <th>Description</th>
                           <th>Status</th>
-                          <th class="text-right">Actions</th>
+                          <th>Actions</th>
                         </thead>
-                        <tbody>
-                             @foreach ($lots as $lot)
-                            <tr>
-                              <td>{{ $lot->id }}</td>
-                              <td>{{ $lot->title }}</td>
-                              <td>{{ $lot->description }}</td>
-                              <td>{{ $lot->lot_status }}</td>
-                              <td class="td-actions text-right">
-                                <a href="{{ url('admin/lots', $lot->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
-                                <a href="{{ url('admin/lots/edit', $lot->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>
-                                <form action="{{ url('admin/lots', $lot->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Are You Sure?')">
-                                @csrf
-                                @method('DELETE')
-                                    <button class="btn btn-danger" type="submit" rel="tooltip">
-                                    <i class="material-icons">close</i>
-                                    </button>
-                                </form>
-                              </td>
-                            </tr>
-                          @endforeach
+                        <tbody class="text-center">
+
                         </tbody>
                       </table>
                     </div>
@@ -66,3 +48,47 @@
       </div>
     </div>
 @endsection
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var table = $('.data-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax:"{!! route('admin.lots') !!}",
+
+            columns: [
+                {
+                    data: 'id',
+                    name: 'id'
+                },
+                {
+                    data: 'title',
+                    name: 'title'
+                },
+                {
+                    data: 'description',
+                    name: 'description'
+                },
+                {
+                    data: 'lot_status',
+                    name:'lot_status'
+                },
+                {
+                data: null,
+                render: function(data, type, row) {
+                    return(`<div><a href="{{ url('admin/lots/${data.id}') }}"class="btn btn-info"><i class="material-icons">person</i></a>
+                    <a href="{{ url('admin/lots/edit/${data.id}') }}"class="btn btn-success"><i class="material-icons">edit</i></a>
+                    <a href="{{ url('admin/lots/${data.id}') }}"class="btn btn-danger"><i class="material-icons">close</i></a></div>
+                    `);
+                },
+            }
+            ]
+        });
+    });
+</script>

@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use DataTables;
+
 
 class UserController extends Controller
 {
@@ -13,10 +15,19 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $users = User::all();
-        return view('admin.user.index', compact('users'));
+        if ($request->ajax()) {
+          return Datatables::of($users)
+                  ->addIndexColumn()
+                  ->rawColumns(['action'])
+                  ->make(true);
+      }
+        return view('admin.user.index')
+            ->with('users', $users);
+
+        // return view('admin.user.index', compact('users'));
     }
 
     /**
