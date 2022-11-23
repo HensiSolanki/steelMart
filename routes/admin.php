@@ -55,6 +55,7 @@ Route::delete('/categories/destroy/{categories}', [CategoriesController::class, 
 
 // Lots Routes
 Route::get('/lots', [LotsController::class, 'index'])->name('lots');
+Route::get('/live_lots', [LotsController::class, 'live_index']);
 Route::get('/lots/create', [LotsController::class, 'create'])->name('create');
 Route::post('/newlots', [LotsController::class, 'store']);
 Route::get('/lots/{lots}', [LotsController::class, 'show']);
