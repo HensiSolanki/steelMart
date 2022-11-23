@@ -43,12 +43,18 @@
                     <p>{{ __('Lots') }}</p>
                 </a>
             </li>
-            <li class="nav-item{{ $activePage == 'auctions' ? ' active' : '' }}">
+             <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ url('admin/live_lots') }}">
+                    <i class="material-icons">notifications</i>
+                    <p>{{ __('Live_Lots') }}</p>
+                </a>
+            </li>
+            {{-- <li class="nav-item{{ $activePage == 'auctions' ? ' active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.auctions.index') }}">
                     <i class="material-icons">notifications</i>
                     <p>{{ __('Auction') }}</p>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>

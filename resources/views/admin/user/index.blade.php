@@ -76,6 +76,7 @@
                 {
                     data: 'null',
                     render: function (data, type, full, meta){
+                        console.log("data",data);
              return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
          }
                 },

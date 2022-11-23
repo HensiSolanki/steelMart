@@ -30,6 +30,18 @@ class LotsController extends Controller
         return view('admin.lots.index')
             ->with('lots', $lots);
     }
+     public function live_index(Request $request)
+    {
+        $lots = lots::all();
+        if ($request->ajax()) {
+          return Datatables::of($lots)
+                  ->addIndexColumn()
+                  ->rawColumns(['action'])
+                  ->make(true);
+      }
+        return view('admin.lots.index')
+            ->with('lots', $lots);
+    }
 
     public function create()
     {
