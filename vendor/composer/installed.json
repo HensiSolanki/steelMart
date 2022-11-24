@@ -2178,7 +2178,7 @@
         },
         "time": "2020-08-27T18:56:02+00:00",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Lcobucci\\Clock\\": "src"
@@ -2249,7 +2249,7 @@
         },
         "time": "2022-08-19T23:14:07+00:00",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Lcobucci\\JWT\\": "src"
@@ -2943,7 +2943,7 @@
         },
         "time": "2016-12-05T07:27:31+00:00",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Namshi\\JOSE\\": "src/Namshi/JOSE/"
@@ -8269,7 +8269,7 @@
                 ]
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Tymon\\JWTAuth\\": "src/"
