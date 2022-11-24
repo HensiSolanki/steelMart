@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\categories;
+use App\Models\images;
 use App\Models\materials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Image;
 
 class MaterialsController extends Controller
 {
@@ -42,8 +44,24 @@ class MaterialsController extends Controller
             'inStock' => 'required|min:0',
             'price' => 'required|min:0',
             'categoryId' => 'nullable',
+            'image' => 'nullable',
         ]);
+
         $details = materials::create(['uid' => $userdetails->id, ...$data]);
+
+        if ($request->hasFile('image')) {
+            foreach ($data['image']  as $imagefile) {
+                $image = new images;
+                $extention = $imagefile->getClientOriginalExtension();
+                $filename = time() . '.' . $extention;
+                $imagefile->move('assets/images/', $filename);
+                // $fileOriginalName = $imagefile->getClientOriginalName();
+                $image->materials_id = $details->id;
+                $image->path = $filename;
+                $image->save();
+            }
+        }
+        // $details->images()->attach(count($imageList) > 0 ? $imageList : []);
         return redirect('/materials');
     }
     public function show(materials $materials)
@@ -53,6 +71,7 @@ class MaterialsController extends Controller
 
     public function edit(materials $materials)
     {
+
         $addForm = false;
         $categorys = categories::all();
         return view('materials.materialform', compact('addForm', 'materials', 'categorys'));
@@ -60,8 +79,7 @@ class MaterialsController extends Controller
 
     public function update(Request $request, materials $materials)
     {
-
-        $materials->update($request->validate([
+        $data = $request->validate([
             'title' => 'required',
             'description' => 'nullable',
             'height' => 'required|min:0',
@@ -70,8 +88,23 @@ class MaterialsController extends Controller
             'weight' => 'required|min:0',
             'inStock' => 'required|min:0',
             'price' => 'required|min:0',
-            'categoryId' => 'required',
-        ]));
+            'categoryId' => 'nullable',
+            'image' => 'nullable',
+        ]);
+        $materials->update($data);
+        if ($request->hasFile('image')) {
+            foreach ($data['image']  as $imagefile) {
+                $image = new images;
+                $extention = $imagefile->getClientOriginalExtension();
+                $filename = time() . '.' . $extention;
+                $imagefile->move('assets/images/', $filename);
+                // $fileOriginalName = $imagefile->getClientOriginalName();
+                $image->materials_id = $materials->id;
+                $image->path = $filename;
+                $image->save();
+            }
+        }
+        // $materials->images()->attach(count($imageList) > 0 ? $imageList : []);
         return redirect('/materials');
     }
 

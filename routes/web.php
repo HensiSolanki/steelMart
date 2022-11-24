@@ -1,6 +1,6 @@
 <?php
-
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\LotsController;
 use App\Http\Controllers\MaterialsController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +25,20 @@ Auth::routes();
 Route::get('/', [LotsController::class, 'index'])->name('home');
 Route::get('/home', [LotsController::class, 'index'])->name('home');
 
+// Live Lots
+Route::get('/livelots', [LotsController::class, 'liveLots']);
+Route::get('/livelots/{lots}', [LotsController::class, 'liveLotDetails']);
+Route::get('/lotbids/{lots}', [LotsController::class, 'liveLotBids']);
+
+// Lots Routes
+Route::get('/lots', [LotsController::class, 'index']);
+Route::get('/lots/create', [LotsController::class, 'create']);
+Route::post('/newlots', [LotsController::class, 'store']);
+Route::get('/lots/{lots}', [LotsController::class, 'show']);
+Route::get('/lots/{lots}/edit', [LotsController::class, 'edit']);
+Route::patch('/lots/{lots}', [LotsController::class, 'update']);
+Route::delete('/lots/{lots}', [LotsController::class, 'destroy']);
+
 // Materials Routes
 Route::get('/materials', [MaterialsController::class, 'index']);
 Route::get('/materials/create', [MaterialsController::class, 'create']);
@@ -42,11 +56,11 @@ Route::get('/categories/{categories}/edit', [CategoriesController::class, 'edit'
 Route::patch('/categories/{categories}', [CategoriesController::class, 'update']);
 Route::delete('/categories/{categories}', [CategoriesController::class, 'destroy']);
 
-// Lots Routes
-Route::get('/lots', [LotsController::class, 'index']);
-Route::get('/lots/create', [LotsController::class, 'create']);
-Route::post('/newlots', [LotsController::class, 'store']);
-Route::get('/lots/{lots}', [LotsController::class, 'show']);
-Route::get('/lots/{lots}/edit', [LotsController::class, 'edit']);
-Route::patch('/lots/{lots}', [LotsController::class, 'update']);
-Route::delete('/lots/{lots}', [LotsController::class, 'destroy']);
+// Users Routes
+Route::get('/customers', [CustomersController::class, 'index']);
+Route::get('/customers/create', [CustomersController::class, 'create']);
+Route::post('/newcustomers', [CustomersController::class, 'store']);
+Route::get('/customers/{customers}', [CustomersController::class, 'show']);
+Route::get('/customers/{customers}/edit', [CustomersController::class, 'edit']);
+Route::patch('/customers/{customers}', [CustomersController::class, 'update']);
+Route::delete('/customers/{customers}', [CustomersController::class, 'destroy']);

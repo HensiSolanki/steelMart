@@ -7,9 +7,11 @@
             <div class="card">
                 <div class="card-header">
                     <div class="btn-group w-100" role="group" aria-label="First group">
+                        <a href="/livelots" type="button" class="btn btn-primary">Live Lots</a>
                         <a href="/lots" type="button" class="btn btn-primary">Lots</a>
                         <a href="/materials" type="button" class="btn btn-primary">Materials</a>
                         <a href="/categories" type="button" class="btn btn-primary">Categories</a>
+                        <a href="/customers" type="button" class="btn btn-primary">Customers</a>
                     </div>
                 </div>
                 <div class="card-body">

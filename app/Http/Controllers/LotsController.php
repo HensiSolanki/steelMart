@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\lot_materials;
+use App\Models\lotbids;
 use App\Models\lots;
 use App\Models\materials;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class LotsController extends Controller
 {
@@ -42,6 +45,7 @@ class LotsController extends Controller
             'status' => 'nullable',
         ]);
         $data = lots::create(['uid' => $userDetails->id, ...$details]);
+        $firestBid = lotbids::create(['userId' => $data['uid'], 'amount' => $data['startAmount'], 'lotId' => $data['id']]);
         $data->materials()->attach(array_key_exists('materials', $details) ? $details['materials'] : []);
         return redirect('lots');
     }
@@ -71,6 +75,8 @@ class LotsController extends Controller
             'status' => 'nullable',
         ]);
         $lots->update(['uid' => $userDetails->id, ...$data]);
+        $firestBid = lotbids::where('lotId', $lots['id'])
+            ->update(['userId' => $lots['uid'], 'amount' => $lots['startAmount'], 'lotId' => $lots['id']]);
 
         $lots->materials()->sync(array_key_exists('materials', $data) ? $data['materials'] : []);
 
@@ -81,5 +87,34 @@ class LotsController extends Controller
     {
         $lots->delete();
         return redirect('lots');
+    }
+
+    public  function liveLots()
+    {
+        $liveLots = lots::whereDate('date', Carbon::today())->get();
+
+        return (view('lots.liveLots', compact('liveLots')));
+    }
+
+    public  function liveLotDetails(lots $lots)
+    {
+        return (view('lots.liveLotsDetails', compact('lots')));
+    }
+
+
+    public  function liveLotBids(lots $lots)
+    {
+        $lotbids = DB::select('
+        SELECT lotbids.id,lotbids.amount,lotbids.created_at as bidTime,
+        lots.title as lotTitle,lots.description as lotdescription,lots.startAmount as lotstartAmount,lots.date as lotStartDate,
+        customers.id as customerId,customers.name as customerName
+        FROM lotbids
+        RIGHT JOIN customers on customers.id = lotbids.customerId
+        LEFT JOIN lots on lots.id = lotbids.lotId
+        WHERE lotId =' . $lots->id . ' ORDER BY lotbids.amount DESC');
+
+        // dd($lotbids);
+        // dd($lotbids[0]->customers[0]->name);
+        return (view('lots.liveLotsDetails', compact('lots', 'lotbids')));
     }
 }

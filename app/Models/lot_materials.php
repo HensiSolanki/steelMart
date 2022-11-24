@@ -11,4 +11,6 @@ class lot_materials extends Model
 
     use HasFactory;
     protected $fillable = ['lots_id', 'materials_id',];
+
+    
 }

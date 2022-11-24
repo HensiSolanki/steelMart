@@ -15,4 +15,8 @@ class lots extends Model
         return $this->belongsToMany(materials::class, 'lot_materials');
     }
 
+    public function lotbids()
+    {
+        return $this->belongsToMany(lotbids::class, lots::class,  'id', 'lotId');
+    }
 }

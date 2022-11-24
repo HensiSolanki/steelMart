@@ -54,7 +54,7 @@
                   
                   <div class="col-sm-12 col-md-6 col-lg-6 ">
                     <label for="date" class="form-label">Date</label>
-                    <input type="datetime-local" class="form-control" id="date" name="date" placeholder="Date" value={{$lots?$lots->date:''}}>
+                    <input type="datetime-local" class="form-control" id="date" name="date" placeholder="Date" value="{{$lots?$lots->date:''}}">
                   </div>
                   <div class="col-sm-12 col-md-6 col-lg-6 ">
                     <label for="startAmount" class="form-label">Start Amount</label>
