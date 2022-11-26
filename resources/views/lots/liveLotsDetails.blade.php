@@ -35,12 +35,12 @@
                                                         <td>{{ $bid->amount }}</td>
                                                         <td>{{ $bid->bidTime }}</td>
                                                         <td>
-                                                            <a
+                                                            {{-- <a
                                                                 href="/bid/{{ $bid->id }}"class="btn btn-primary btn-sm">
                                                                 Bid Details
-                                                            </a>
+                                                            </a> --}}
                                                             <a
-                                                                href="/customer/{{ $bid->customerId }}"class="btn btn-primary btn-sm">
+                                                                href="/customers/{{ $bid->customerId }}"class="btn btn-primary btn-sm">
                                                                 Customer Details
                                                             </a>
                                                         </td>
